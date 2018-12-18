@@ -77,3 +77,6 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+config.json
+token.json

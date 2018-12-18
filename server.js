@@ -1,12 +1,16 @@
 const express = require('express');
 const request = require('request-promise-native');
 const fs = require('fs');
+const Datastore = require('@google-cloud/datastore');
+const datastore = new Datastore();
 
 var app = express();
 
 var data;
 var manifest;
 var manifesturl;
+
+const key = datastore.key(['wherethefuckisxur', 'token']);
 
 if (!fs.existsSync('config.json')) {
     throw "No config.json, can't run";
@@ -26,7 +30,10 @@ bungiefetch().then(() => {
 
     nextFetch();
 
-    app.listen(80);
+    const PORT = process.env.PORT || 8080;
+    app.listen(PORT, () => {
+        console.log(`Server listening on port ${PORT}...`);
+    });
 });
 
 async function bungiefetch() {
