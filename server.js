@@ -1,14 +1,10 @@
 const express = require('express');
 const request = require('request-promise-native');
 const fs = require('fs');
-const Datastore = require('@google-cloud/datastore');
-const datastore = new Datastore();
 
 var app = express();
 
-var data;
-
-const key = datastore.key(['Bungie Data', 'data']);
+let data;
 
 app.get('/data', (req, res) => {
     res.send(data);
@@ -16,7 +12,7 @@ app.get('/data', (req, res) => {
 
 refreshdata().then(() => {
 
-    nextFetch();
+    runRefresh();
 
     const PORT = process.env.PORT || 8080;
     app.listen(PORT, () => {
@@ -24,24 +20,34 @@ refreshdata().then(() => {
     });
 });
 
-async function refreshdata() {
-    datastore.get(key, (err, entity) => {
-        data = entity;
-    })
+function runRefresh() {
+    refreshdata().then(() => {
+        let currentMs = (new Date()).getTime();
+        let msThroughDay = currentMs % 86400000;
+        let nextRun;
+        if (msThroughDay > 61200000) {
+            nextRun = 86400000 - msThroughDay;
+        } else {
+            nextRun = 61200000 - msThroughDay;
+        }        
+        queueNext(nextRun);
+    }, () => {
+        queueNext(10000);
+    })    
+
 }
 
-function nextFetch() {
-    let currentMs = (new Date()).getTime();
-    let msThroughDay = currentMs % 86400000;
-    let nextRun;
-    if (msThroughDay > 61200000) {
-        nextRun = 86400000 - msThroughDay;
+async function refreshdata() {
+    let newdata = JSON.parse(fs.readFileSync('../data.json'));
+    if (newdata == data) {
+        throw 'DupeData';
     } else {
-        nextRun = 61200000 - msThroughDay;
+        data = newdata;
     }
+}
+
+function queueNext(nextRun) {
     setTimeout(() => {
-        refreshdata().then(() => {
-            nextFetch();
-        })
+        runRefresh();
     }, nextRun)
 }
