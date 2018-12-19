@@ -1,0 +1,16 @@
+stages:
+- build
+- deploy
+
+build:
+  stage: build
+  script:
+  - "docker build -t data-cruncher:master -t data-server:$CI_COMMIT_SHA ."
+
+deploy:
+  stage: deploy
+  when: manual
+  script:
+  - "docker stop data-server || true"
+  - "docker rm data-server || true"
+  - "docker run --restart unless-stopped -v DataStorage:/app/storage --name data-server -d data-server:master"

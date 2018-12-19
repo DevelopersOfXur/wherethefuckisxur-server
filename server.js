@@ -14,9 +14,8 @@ refreshdata().then(() => {
 
     runRefresh();
 
-    const PORT = process.env.PORT || 8080;
-    app.listen(PORT, () => {
-        console.log(`Server listening on port ${PORT}...`);
+    app.listen(8080, () => {
+        console.log(`Server listening on port 8080...`);
     });
 });
 
@@ -38,7 +37,7 @@ function runRefresh() {
 }
 
 async function refreshdata() {
-    let newdata = JSON.parse(fs.readFileSync('../data.json'));
+    let newdata = JSON.parse(fs.readFileSync('storage/data.json'));
     if (newdata == data) {
         throw 'DupeData';
     } else {
