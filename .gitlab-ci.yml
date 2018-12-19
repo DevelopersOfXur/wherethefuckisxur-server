@@ -13,4 +13,4 @@ deploy:
   script:
   - "docker stop data-server || true"
   - "docker rm data-server || true"
-  - "docker run --restart unless-stopped -v DataStorage:/app/storage --name data-server -d data-server:master"
+  - "docker run -p 80:80 --restart unless-stopped -v DataStorage:/app/storage --name data-server -d data-server:master"
