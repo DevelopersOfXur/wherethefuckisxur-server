@@ -5,7 +5,7 @@ stages:
 build:
   stage: build
   script:
-  - "docker build -t data-cruncher:master -t data-server:$CI_COMMIT_SHA ."
+  - "docker build -t data-server:master -t data-server:$CI_COMMIT_SHA ."
 
 deploy:
   stage: deploy
