@@ -5,6 +5,7 @@ const fs = require('fs');
 var app = express();
 
 let data;
+let vendordata;
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
@@ -23,6 +24,10 @@ app.get('/guides', (req, res) => {
 
 app.get('/spider', (req, res) => {
     res.render('spider', data);
+})
+
+app.get('/data/vendor', (req, res) => {
+    res.render('vendor');
 })
 
 app.get('/accessibility', (req, res) => {
@@ -49,6 +54,10 @@ app.get('/api/data', (req, res) => {
     res.send(data);
 })
 
+app.get('/api/vendor', (req, res) => {
+    res.send(vendordata);
+})
+
 app.use(express.static('public'));
 
 refreshdata().then(() => {
@@ -69,7 +78,7 @@ function runRefresh() {
             nextRun = 86400000 - msThroughDay;
         } else {
             nextRun = 61200000 - msThroughDay;
-        }        
+        }
         queueNext(nextRun);
     }, () => {
         queueNext(10000);
@@ -83,6 +92,13 @@ async function refreshdata() {
         throw 'DupeData';
     } else {
         data = newdata;
+    }
+
+    let newvendor = JSON.parse(fs.readFileSync('storage/vendor.json'));
+    if (newvendor == vendordata) {
+        throw 'DupeVendor';
+    } else {
+        vendordata = newvendor;
     }
 }
 
