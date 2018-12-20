@@ -1,14 +1,51 @@
 const express = require('express');
-const request = require('request-promise-native');
+const exphbs  = require('express-handlebars');
 const fs = require('fs');
 
 var app = express();
 
 let data;
 
-app.get('/data', (req, res) => {
-    res.send(data);
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+
+app.get('/', (req, res) => {
+    res.render('index', data);
 })
+
+app.get('/index', (req, res) => {
+    res.render('index', data);
+})
+
+app.get('/guides', (req, res) => {
+    res.render('guides', data);
+})
+
+app.get('/spider', (req, res) => {
+    res.render('spider', data);
+})
+
+app.get('/accessibility', (req, res) => {
+    res.render('accessibility');
+})
+
+app.get('/archives', (req, res) => {
+    res.render('archives');
+})
+
+app.get('/faq', (req, res) => {
+    res.render('faq');
+})
+
+app.get('/privacy-policy', (req, res) => {
+    res.render('privacy-policy');
+})
+
+app.get('/quiz-results', (req, res) => {
+    res.render('quiz-results');
+})
+
+app.use(express.static('public'));
 
 refreshdata().then(() => {
 
