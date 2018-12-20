@@ -1,5 +1,6 @@
 stages:
 - build
+- startdev
 - deploy
 
 build:
@@ -7,6 +8,12 @@ build:
   script:
   - "docker build -t data-server:master -t data-server:$CI_COMMIT_SHA ."
 
+startdev:
+  stage: startdev
+  script:
+  - "docker stop data-server-dev || true"
+  - "docker rm data-server-dev || true"
+  - "docker run -p 80:8000 --restart unless-stopped -v DataStorage:/app/storage --name data-server-dev -d data-server:master"
 deploy:
   stage: deploy
   when: manual
