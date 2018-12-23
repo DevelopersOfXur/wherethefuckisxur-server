@@ -45,10 +45,6 @@ app.get('/quiz-results', (req, res) => {
     res.render('quiz-results');
 })
 
-app.get('/api/data', (req, res) => {
-    res.send(data);
-})
-
 app.use(express.static('public'));
 
 refreshdata().then(() => {
