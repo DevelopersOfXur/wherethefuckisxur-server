@@ -4,40 +4,30 @@ const fs = require('fs');
 
 var app = express();
 
+let data;
+let vendordata;
+
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => {
-    let data = JSON.parse(fs.readFileSync('storage/data.json').toJSON());
     res.render('index', data);
 })
 
 app.get('/index', (req, res) => {
-    let data = JSON.parse(fs.readFileSync('storage/data.json').toJSON());
     res.render('index', data);
 })
 
 app.get('/guides', (req, res) => {
-    let data = JSON.parse(fs.readFileSync('storage/data.json').toJSON());
     res.render('guides', data);
 })
 
 app.get('/spider', (req, res) => {
-    let data = JSON.parse(fs.readFileSync('storage/data.json').toJSON());
     res.render('spider', data);
 })
 
 app.get('/data/vendor', (req, res) => {
-    res.redirect('/data/vendor/69482069');
-})
-
-app.get('/data/vendor/:vendorhash', (req, res) => {
-    let vendor = JSON.parse(fs.readFileSync('storage/vendor.json'));
-    if (req.params.vendorhash in vendor) {
-        res.render('vendor', vendor[req.params.vendorhash]);
-    } else {
-        res.redirect('/data/vendor')
-    }
+    res.render('vendor');
 })
 
 app.get('/accessibility', (req, res) => {
@@ -61,15 +51,59 @@ app.get('/quiz-results', (req, res) => {
 })
 
 app.get('/api/data', (req, res) => {
-    res.send(fs.readFileSync('storage/data.json'));
+    res.send(data);
 })
 
 app.get('/api/vendor', (req, res) => {
-    res.send(fs.readFileSync('storage/vendor.json'));
+    res.send(vendordata);
 })
 
 app.use(express.static('public'));
 
-app.listen(80, () => {
-    console.log('Server listening on port 80...');
-})
+refreshdata().then(() => {
+
+    runRefresh();
+
+    app.listen(80, () => {
+        console.log(`Server listening on port 80...`);
+    });
+});
+
+function runRefresh() {
+    refreshdata().then(() => {
+        let currentMs = (new Date()).getTime();
+        let msThroughDay = currentMs % 86400000;
+        let nextRun;
+        if (msThroughDay > 61200000) {
+            nextRun = 86400000 - msThroughDay;
+        } else {
+            nextRun = 61200000 - msThroughDay;
+        }
+        queueNext(nextRun);
+    }, () => {
+        queueNext(10000);
+    })    
+
+}
+
+async function refreshdata() {
+    let newdata = JSON.parse(fs.readFileSync('storage/data.json'));
+    if (newdata == data) {
+        throw 'DupeData';
+    } else {
+        data = newdata;
+    }
+
+    let newvendor = JSON.parse(fs.readFileSync('storage/vendor.json'));
+    if (newvendor == vendordata) {
+        throw 'DupeVendor';
+    } else {
+        vendordata = newvendor;
+    }
+}
+
+function queueNext(nextRun) {
+    setTimeout(() => {
+        runRefresh();
+    }, nextRun)
+}
