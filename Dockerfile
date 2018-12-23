@@ -10,6 +10,4 @@ VOLUME /app/storage
 
 EXPOSE 80
 
-ENV NODE_ENV=production
-
 CMD npm start
