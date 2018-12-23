@@ -29,6 +29,22 @@ ul.share-buttons .sr-only{
   }
 }
 
+
+
+/* * * * * COLORS * * * * * */
+
+.light-gray {
+  color:#dfe4e5;
+}
+
+.mid-gray {
+  color:#c2cacc;
+}
+
+.dark-gray {
+  color:#5f6f72;
+}
+
 /* * * * * GENERAL STYLES * * * * * */
 
 html {
@@ -365,6 +381,10 @@ nav .footer-menu {
 
 /* * * * * XUR STYLES * * * * */
 
+.xur-inventory {
+
+}
+
 .xur-location-details {
   text-align:center;
   font-size:1.5em;
@@ -551,45 +571,6 @@ div.guides-container {
 
 .guide-menu a:hover, .guide-menu a:active {
   color:#1d9db5;
-}
-
-/* new data screen */
-
-.flex {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.data-menu {
-  flex: initial;
-  width: 200px;
-  background-color: var(--secondary-background-color);
-  padding: 10px;
-  padding-left: 25px;
-  border-right: 1px solid var(--border-color);
-}
-
-.data-menu a {
-  display: block;
-  color: var(--menu-text-color);
-  padding: 15px 0px;
-  text-decoration: none;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  font-weight:600;
-  border-bottom:1px solid var(--border-color);
-}
-
-.data-menu a:hover {
-  color: var(--link-text-color);
-}
-
-.data-menu a:last-child {
-  border-bottom:0px;
-}
-
-.data-container {
-  flex: auto;
 }
 
 /* On screens that are less than 700px wide, make the menu into a topbar */
