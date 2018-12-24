@@ -1,0 +1,15 @@
+{{!< data}}
+
+<div class="vendor-info">
+    <select class="vendor-select">
+        <option>Spider</option>
+    </select>
+    <p class="vendor-desc">
+        Big fat fallen selling some planet mats
+    </p>
+</div>
+<div class="vendor-sales">
+    {{#each categories}}
+    {{> vendorcat}}
+    {{/each}}
+</div>

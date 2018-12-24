@@ -1,30 +1,45 @@
 const express = require('express');
-const exphbs  = require('express-handlebars');
+const hbs  = require('express-hbs');
 const fs = require('fs');
 
 var app = express();
 
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
+app.engine('hbs', hbs.express4({
+    partialsDir: __dirname + '/views/partials',
+    defaultLayout: __dirname + '/views/layouts/main',
+    layoutsDir: __dirname + '/views/layouts'
+  }));
+
+app.set('view engine', 'hbs');
+app.set('views', __dirname + '/views');
 
 app.get('/', (req, res) => {
-    let data = JSON.parse(fs.readFileSync('storage/data.json').toJSON());
+    let data = JSON.parse(fs.readFileSync('storage/data.json', 'utf8'));
     res.render('index', data);
 })
 
 app.get('/index', (req, res) => {
-    let data = JSON.parse(fs.readFileSync('storage/data.json').toJSON());
+    let data = JSON.parse(fs.readFileSync('storage/data.json', 'utf8'));
     res.render('index', data);
 })
 
 app.get('/guides', (req, res) => {
-    let data = JSON.parse(fs.readFileSync('storage/data.json').toJSON());
+    let data = JSON.parse(fs.readFileSync('storage/data.json', 'utf8'));
     res.render('guides', data);
 })
 
 app.get('/spider', (req, res) => {
-    let data = JSON.parse(fs.readFileSync('storage/data.json').toJSON());
+    let data = JSON.parse(fs.readFileSync('storage/data.json', 'utf8'));
     res.render('spider', data);
+})
+
+app.get('/data', (req, res) => {
+    res.redirect('/data/quicklook');
+})
+
+app.get('/data/quicklook', (req, res) => {
+    let data = JSON.parse(fs.readFileSync('storage/data.json', 'utf8'));
+    res.render('data/quicklook', data);
 })
 
 app.get('/data/vendor', (req, res) => {
@@ -32,9 +47,9 @@ app.get('/data/vendor', (req, res) => {
 })
 
 app.get('/data/vendor/:vendorhash', (req, res) => {
-    let vendor = JSON.parse(fs.readFileSync('storage/vendor.json'));
+    let vendor = JSON.parse(fs.readFileSync('storage/vendor.json', 'utf8'));
     if (req.params.vendorhash in vendor) {
-        res.render('vendor', vendor[req.params.vendorhash]);
+        res.render('data/vendor', vendor[req.params.vendorhash]);
     } else {
         res.redirect('/data/vendor')
     }
@@ -61,11 +76,11 @@ app.get('/quiz-results', (req, res) => {
 })
 
 app.get('/api/data', (req, res) => {
-    res.send(fs.readFileSync('storage/data.json'));
+    res.send(fs.readFileSync('storage/data.json', 'utf8'));
 })
 
 app.get('/api/vendor', (req, res) => {
-    res.send(fs.readFileSync('storage/vendor.json'));
+    res.send(fs.readFileSync('storage/vendor.json', 'utf8'));
 })
 
 app.use(express.static('public'));

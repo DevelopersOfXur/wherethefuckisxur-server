@@ -93,54 +93,6 @@
     </div>
 
     <div class="not-xur">
-      <div class="spider-home white-box">
-        <h3>Big Fat Fallen</h3>
-        <p class="flavor-text">sellin' some planet mats</p>
-        <ul id="spiderinv">
-          {{#each spiderinventory}}
-          <li>
-            <span class="item">{{name}}</span><br />
-            <span class="item-description">{{cost}}</span>
-          </li>
-          {{/each}}
-        </ul>
-      </div>
-
-      <div class="banshee white-box">
-        <h3>Banshee Mods</h3>
-        <p class="flavor-text"></p>
-        <ul id="bansheeinv">
-          {{#each bansheeinventory}}
-          <li>
-            <span class="item">{{name}}</span><br />
-            <span class="item-description">{{desc}}</span>
-          </li>
-          {{/each}}
-        </ul>
-      </div>
-
-      <div class="dailies white-box">
-        <h3>Dailies</h3>
-        <p class="flavor-text"></p>
-        <ul id="dailies">
-          <li class="dailies-today item">{{dailies.current}}</li>
-          <li class="dailies-and-then">And then...</li>
-          {{#each dailies.next}}
-          <li class="dailies-future sub-item">{{daily}}</li>
-          {{/each}}
-        </ul>
-      </div>
-
-      <div class="white-box">
-        <h3>Active Nightfalls</h3>
-        <p class="flavor-text"></p>
-        <ul id="nightfalls">
-          {{#each activenightfalls}}
-          <li class="nightfall item">{{this}}</li>
-          {{/each}}
-        </ul>
-      </div>
-
       <!-- <div class="nightfall white-box">
               <h3>Weekly Nightfalls</h3>
               <p class="flavor-text"></p>
