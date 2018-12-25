@@ -605,6 +605,10 @@ div.guides-container {
   width: 300px;
 }
 
+.announcement {
+  text-align: center;
+}
+
 /* On screens that are less than 700px wide, make the menu into a topbar */
 @media screen and (max-width: 700px) {
   .guide-menu {

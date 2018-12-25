@@ -4,6 +4,20 @@ const fs = require('fs');
 
 var app = express();
 
+let dataAPI;
+let vendorData;
+let vendorDataAPI;
+
+let vendorDesc = {
+    '863940356': 'Big fat fallen selling some planet mats.'
+}
+
+updateData();
+updateVendorData();
+
+fs.watchFile('storage/data.json', updateData)
+fs.watchFile('storage/vendor.json', updateVendorData);
+
 app.engine('hbs', hbs.express4({
     partialsDir: __dirname + '/views/partials',
     defaultLayout: __dirname + '/views/layouts/main',
@@ -14,23 +28,19 @@ app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 
 app.get('/', (req, res) => {
-    let data = JSON.parse(fs.readFileSync('storage/data.json', 'utf8'));
-    res.render('index', data);
+    res.render('index', dataAPI);
 })
 
 app.get('/index', (req, res) => {
-    let data = JSON.parse(fs.readFileSync('storage/data.json', 'utf8'));
-    res.render('index', data);
+    res.render('index', dataAPI);
 })
 
 app.get('/guides', (req, res) => {
-    let data = JSON.parse(fs.readFileSync('storage/data.json', 'utf8'));
-    res.render('guides', data);
+    res.render('guides', dataAPI);
 })
 
 app.get('/spider', (req, res) => {
-    let data = JSON.parse(fs.readFileSync('storage/data.json', 'utf8'));
-    res.render('spider', data);
+    res.render('spider', dataAPI);
 })
 
 app.get('/data', (req, res) => {
@@ -38,18 +48,16 @@ app.get('/data', (req, res) => {
 })
 
 app.get('/data/quicklook', (req, res) => {
-    let data = JSON.parse(fs.readFileSync('storage/data.json', 'utf8'));
-    res.render('data/quicklook', data);
+    res.render('data/quicklook', dataAPI);
 })
 
 app.get('/data/vendor', (req, res) => {
-    res.redirect('/data/vendor/69482069');
+    res.redirect('/data/vendor/863940356');
 })
 
 app.get('/data/vendor/:vendorhash', (req, res) => {
-    let vendor = JSON.parse(fs.readFileSync('storage/vendor.json', 'utf8'));
-    if (req.params.vendorhash in vendor) {
-        res.render('data/vendor', vendor[req.params.vendorhash]);
+    if (req.params.vendorhash in vendorData) {
+        res.render('data/vendor', vendorData[req.params.vendorhash]);
     } else {
         res.redirect('/data/vendor')
     }
@@ -76,11 +84,11 @@ app.get('/quiz-results', (req, res) => {
 })
 
 app.get('/api/data', (req, res) => {
-    res.send(fs.readFileSync('storage/data.json', 'utf8'));
+    res.send(dataAPI);
 })
 
 app.get('/api/vendor', (req, res) => {
-    res.send(fs.readFileSync('storage/vendor.json', 'utf8'));
+    res.send(vendorDataAPI);
 })
 
 app.use(express.static('public'));
@@ -88,3 +96,28 @@ app.use(express.static('public'));
 app.listen(80, () => {
     console.log('Server listening on port 80...');
 })
+
+function updateData() {
+    data = JSON.parse(fs.readFileSync('storage/data.json', 'utf8'));
+}
+
+function updateVendorData() {
+    let vendorFile = fs.readFileSync('storage/vendor.json', 'utf8');
+    vendorDataAPI = JSON.parse(vendorFile);
+    vendorData = JSON.parse(vendorFile);
+
+    for (let vendorHash in vendorData) {
+        let vendor = vendorData[vendorHash];
+        vendor.desc = vendorDesc[vendorHash];
+        vendor.otherVendors = [];
+        for (let otherVendorHash in vendorData) {
+            if (otherVendorHash != vendorHash) {
+                let vendorDisplay = {
+                    name: vendorData[otherVendorHash].display.name,
+                    hash: otherVendorHash
+                }
+                vendor.otherVendors.push(vendorDisplay)
+            }
+        }
+    }
+}
