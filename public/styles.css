@@ -68,7 +68,7 @@ body {
 }
 
 .container {
-  max-width: 1024px;
+  max-width: 1400px;
   margin: 0 auto;
   padding:10px 0 30px;
 }
@@ -511,16 +511,17 @@ nav .footer-menu {
 
 /* * * * * GUIDE MENU STYLES * * * * * */
 
-div.guides-container {
+div.data-container {
   display: inline-grid;
   width: 65%;
-  padding-left: 30px;
+  padding-left: 50px;
 }
 
-.guide-menu {
+.side-menu {
   display: inline-grid;
+  left: 25px;
   margin: 30px 0 0;
-  width: 25%;
+  width: 20%;
   position: sticky;
   top: 30px;
   height: 50%;
@@ -530,7 +531,7 @@ div.guides-container {
   padding:10px 20px;
 }
 
-.guide-menu a {
+.side-menu a {
   display: block;
   color: var(--menu-text-color);
   padding: 15px 0px;
@@ -541,11 +542,11 @@ div.guides-container {
   border-bottom:1px solid var(--border-color);
 }
 
-.guide-menu a:last-child {
+.side-menu a:last-child {
   border-bottom:0px;
 }
 
-.guide-menu a:hover, .guide-menu a:active {
+.side-menu a:hover, .side-menu a:active {
   color:#1d9db5;
 }
 
@@ -556,44 +557,7 @@ div.guides-container {
   align-items: flex-start;
 }
 
-.data-menu {
-  position: sticky;
-  top: 25px;
-  width: 200px;
-  background-color: var(--secondary-background-color);
-  margin: 25px;
-  padding: 10px;
-  padding-left: 25px;
-  border: 1px solid var(--border-color);
-  flex: none;
-}
-
-.data-menu a {
-  display: block;
-  color: var(--menu-text-color);
-  padding: 15px 0px;
-  text-decoration: none;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  font-weight:600;
-  border-bottom:1px solid var(--border-color);
-}
-
-.data-menu a:hover {
-  color: var(--link-text-color);
-}
-
-.data-menu a:last-child {
-  border-bottom:0px;
-}
-
-.data-container {
-  flex: auto;
-  margin-right: -25px;
-  padding: 25px;
-}
-
-.quicklook {
+.data-box-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -611,14 +575,14 @@ div.guides-container {
 
 /* On screens that are less than 700px wide, make the menu into a topbar */
 @media screen and (max-width: 700px) {
-  .guide-menu {
+  .side-menu {
     width: 100%;
     height: auto;
     position: relative;
     padding:20px 0;
   }
 
-  .guide-menu a {
+  .side-menu a {
     float: left;
     border-bottom:0px;
     border-right:1px solid var(--border-color);
@@ -626,11 +590,11 @@ div.guides-container {
     text-align:center;
   }
 
-  .guide-menu a:last-child {
+  .side-menu a:last-child {
     border-right:0px;
   }
 
-  div.guides-container {
+  div.data-container {
     margin-left: 0;
     padding-left: 0;
     width:60%;
@@ -644,7 +608,7 @@ div.guides-container {
 
 /* On screens that are less than 400px, display the menu vertically, instead of horizontally */
 @media screen and (max-width: 400px) {
-  .guide-menu a {
+  .side-menu a {
     text-align: center;
     float: none;
     margin:0px;
@@ -653,7 +617,7 @@ div.guides-container {
     padding: 15px 0px;
   }
 
-  .guide-menu {
+  .side-menu {
     width:100%;
     padding:0px;
     margin-bottom:30px;
@@ -711,7 +675,7 @@ div.guides-container {
   padding-left:0;
 }
 
-.guide-menu a {
+.side-menu a {
   text-align: center;
   float: none;
   margin:0px;
@@ -720,14 +684,14 @@ div.guides-container {
   padding: 15px 0px;
 }
 
-.guide-menu {
+.side-menu {
   width:100%;
   padding:0px;
   margin-bottom:30px;
   margin-top:0px;
 }
 
-div.guides-container {
+div.data-container {
   width:100%;
 }
 
@@ -771,7 +735,7 @@ landscape 800x480 or 854x480 phones */
   padding:10px 30px 30px;
 }
 
-div.guides-container {
+div.data-container {
   width:60%;
 }
 

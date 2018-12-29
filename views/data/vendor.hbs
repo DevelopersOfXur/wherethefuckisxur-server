@@ -5,10 +5,10 @@
         {{display.name}}
     </div>
     <div class="vendor-dropdown">
-        {{#each otherVendors}}
-        <div class="vendor-option">
+        {{#each vendors}}
+        <a class="vendor-option" href="/data/vendor/{{hash}}">
             {{name}}
-        </div>
+        </a>
         {{/each}}
     </div>
     <p class="vendor-desc">

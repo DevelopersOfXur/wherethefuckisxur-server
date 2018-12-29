@@ -7,6 +7,7 @@ var app = express();
 let dataAPI;
 let vendorData;
 let vendorDataAPI;
+let cyclesAPI;
 
 let vendorDesc = {
     '863940356': 'Big fat fallen selling some planet mats.'
@@ -35,10 +36,6 @@ app.get('/index', (req, res) => {
     res.render('index', dataAPI);
 })
 
-app.get('/guides', (req, res) => {
-    res.render('guides', dataAPI);
-})
-
 app.get('/spider', (req, res) => {
     res.render('spider', dataAPI);
 })
@@ -61,6 +58,30 @@ app.get('/data/vendor/:vendorhash', (req, res) => {
     } else {
         res.redirect('/data/vendor')
     }
+})
+
+app.get('/data/currentcycles', (req, res) => {
+    res.render('data/currentcycles', cyclesAPI);
+})
+
+app.get('/guides/', (req, res) => {
+    res.render('guides/welcome');
+})
+
+app.get('/guides/escalationprotocol', (req, res) => {
+    res.render('guides/escalationprotocol', cyclesAPI.escalationprotocol);
+})
+
+app.get('/guides/blindwell', (req, res) => {
+    res.render('guides/blindwell', cyclesAPI.citystatus);
+})
+
+app.get('/guides/ascendantchallenge', (req, res) => {
+    res.render('guides/ascendantchallenge', cyclesAPI.ascendantchallenge);
+})
+
+app.get('/guides/dawning', (req, res) => {
+    res.render('guides/dawning');
 })
 
 app.get('/accessibility', (req, res) => {
@@ -98,7 +119,27 @@ app.listen(80, () => {
 })
 
 function updateData() {
-    data = JSON.parse(fs.readFileSync('storage/data.json', 'utf8'));
+    dataAPI = JSON.parse(fs.readFileSync('storage/data.json', 'utf8'));
+
+    console.log(dataAPI);
+
+    cyclesAPI = {};
+    cyclesAPI.ascendantchallenge = dataAPI.ac;
+    cyclesAPI.escalationprotocol = dataAPI.ep;
+    cyclesAPI.citystatus = dataAPI.bw;
+    cyclesAPI.dailies = dataAPI.dailies;
+    cyclesAPI.nightfalls = dataAPI.activenightfalls;
+    switch (cyclesAPI.citystatus.id) {
+        case 1:
+            cyclesAPI.citystatus.curse = 'None'
+            break
+        case 2:
+            cyclesAPI.citystatus.curse = 'Partial'
+            break
+        case 3:
+            cyclesAPI.citystatus.curse = 'Full'
+            break
+    }
 }
 
 function updateVendorData() {
@@ -108,16 +149,20 @@ function updateVendorData() {
 
     for (let vendorHash in vendorData) {
         let vendor = vendorData[vendorHash];
-        vendor.desc = vendorDesc[vendorHash];
-        vendor.otherVendors = [];
+        let desc;
+        if (vendorHash in vendorDesc) {
+            desc = vendorDesc[vendorHash];
+        } else {
+            desc = 'This guy so new we don\'t even have a description yet';
+        }
+        vendor.desc = desc;
+        vendor.vendors = [];
         for (let otherVendorHash in vendorData) {
-            if (otherVendorHash != vendorHash) {
-                let vendorDisplay = {
-                    name: vendorData[otherVendorHash].display.name,
-                    hash: otherVendorHash
-                }
-                vendor.otherVendors.push(vendorDisplay)
+            let vendorDisplay = {
+                name: vendorData[otherVendorHash].display.name,
+                hash: otherVendorHash
             }
+            vendor.vendors.push(vendorDisplay)
         }
     }
 }
