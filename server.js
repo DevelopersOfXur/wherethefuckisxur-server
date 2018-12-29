@@ -8,6 +8,7 @@ let dataAPI;
 let vendorData;
 let vendorDataAPI;
 let cyclesAPI;
+let xurAPI;
 
 let vendorDesc = {
     '863940356': 'Big fat fallen selling some planet mats.'
@@ -15,9 +16,11 @@ let vendorDesc = {
 
 updateData();
 updateVendorData();
+updateXurData();
 
-fs.watchFile('storage/data.json', updateData)
+fs.watchFile('storage/data.json', updateData);
 fs.watchFile('storage/vendor.json', updateVendorData);
+fs.watchFile('storage/xur.json', updateXurData);
 
 app.engine('hbs', hbs.express4({
     partialsDir: __dirname + '/views/partials',
@@ -29,23 +32,23 @@ app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 
 app.get('/', (req, res) => {
-    res.render('index', dataAPI);
+    res.render('home', dataAPI);
 })
 
 app.get('/index', (req, res) => {
-    res.render('index', dataAPI);
+    res.redirect('/');
 })
 
-app.get('/spider', (req, res) => {
-    res.render('spider', dataAPI);
+app.get('/home', (req, res) => {
+    res.redirect('/');
 })
 
-app.get('/data', (req, res) => {
-    res.redirect('/data/quicklook');
+app.get('/quicklook', (req, res) => {
+    res.render('quicklook', dataAPI);
 })
 
-app.get('/data/quicklook', (req, res) => {
-    res.render('data/quicklook', dataAPI);
+app.get('/data/', (req, res) => {
+    res.redirect('/data/currentcycles');
 })
 
 app.get('/data/vendor', (req, res) => {
@@ -84,6 +87,10 @@ app.get('/guides/dawning', (req, res) => {
     res.render('guides/dawning');
 })
 
+app.get('/guides/spider', (req, res) => {
+    res.render('guides/spider');
+})
+
 app.get('/accessibility', (req, res) => {
     res.render('accessibility');
 })
@@ -104,12 +111,24 @@ app.get('/quiz-results', (req, res) => {
     res.render('quiz-results');
 })
 
+app.get('/xur', (req, res) => {
+    res.redirect('/api/xur');
+})
+
 app.get('/api/data', (req, res) => {
     res.send(dataAPI);
 })
 
 app.get('/api/vendor', (req, res) => {
     res.send(vendorDataAPI);
+})
+
+app.get('/api/cycles', (req, res) => {
+    res.send(cyclesAPI);
+})
+
+app.get('/api/xur', (req, res) => {
+    res.send(xurAPI);
 })
 
 app.use(express.static('public'));
@@ -165,4 +184,8 @@ function updateVendorData() {
             vendor.vendors.push(vendorDisplay)
         }
     }
+}
+
+function updateXurData() {
+    xurAPI = JSON.parse(fs.readFileSync('storage/xur.json', 'utf8'));
 }
