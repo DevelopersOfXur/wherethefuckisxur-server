@@ -269,7 +269,6 @@ nav .footer-menu {
 }
 
 .white-box {
-  margin-bottom: 30px;
   border:1px solid var(--border-color);
   padding:20px;
   background:var(--block-background-color);
@@ -295,7 +294,6 @@ nav .footer-menu {
 .white-box .flavor-text, .flavor-text {
   text-align:center;
   font-size:1.5em;
-  margin:0px;
 }
 
 .line-header {
@@ -571,6 +569,56 @@ div.data-container {
 
 .announcement {
   text-align: center;
+}
+
+.vendor-item {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.item-socket {
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* home screen */
+
+#muuri-grid {
+  position: relative;
+}
+
+.grid-item {
+  display: block;
+  position: absolute;
+  margin: 10px;
+  padding: 25px;
+  width: 250px;
+  height: 250px;
+}
+
+.grid-item.wide {
+  width: 580px;
+  height: 250px;
+}
+
+.grid-item.tall {
+  width: 250px;
+  height: 580px;
+}
+
+.grid-item.big {
+  width: 580px;
+  height: 580px;
+}
+
+/* item stuff */
+
+.tooltip {
+  position: absolute;
+  pointer-events: none;
+}
+
+.hidden {
+  display: none;
 }
 
 /* On screens that are less than 700px wide, make the menu into a topbar */

@@ -4,7 +4,7 @@ const fs = require('fs');
 
 var app = express();
 
-let dataAPI;
+let data = {};
 let vendorData;
 let vendorDataAPI;
 let cyclesAPI;
@@ -14,11 +14,13 @@ let vendorDesc = {
     '863940356': 'Big fat fallen selling some planet mats.'
 }
 
-updateData();
+updateCycleData();
 updateVendorData();
 updateXurData();
 
-fs.watchFile('storage/data.json', updateData);
+console.log(data);
+
+fs.watchFile('storage/cycles.json', updateCycleData);
 fs.watchFile('storage/vendor.json', updateVendorData);
 fs.watchFile('storage/xur.json', updateXurData);
 
@@ -32,7 +34,7 @@ app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 
 app.get('/', (req, res) => {
-    res.render('home', dataAPI);
+    res.render('home', data);
 })
 
 app.get('/index', (req, res) => {
@@ -41,10 +43,6 @@ app.get('/index', (req, res) => {
 
 app.get('/home', (req, res) => {
     res.redirect('/');
-})
-
-app.get('/quicklook', (req, res) => {
-    res.render('quicklook', dataAPI);
 })
 
 app.get('/data/', (req, res) => {
@@ -137,27 +135,13 @@ app.listen(80, () => {
     console.log('Server listening on port 80...');
 })
 
-function updateData() {
-    dataAPI = JSON.parse(fs.readFileSync('storage/data.json', 'utf8'));
+function updateCycleData() {
+    let cyclesFile = fs.readFileSync('storage/cycles.json', 'utf8');
+    cyclesAPI = JSON.parse(cyclesFile);
 
-    console.log(dataAPI);
-
-    cyclesAPI = {};
-    cyclesAPI.ascendantchallenge = dataAPI.ac;
-    cyclesAPI.escalationprotocol = dataAPI.ep;
-    cyclesAPI.citystatus = dataAPI.bw;
-    cyclesAPI.dailies = dataAPI.dailies;
-    cyclesAPI.nightfalls = dataAPI.activenightfalls;
-    switch (cyclesAPI.citystatus.id) {
-        case 1:
-            cyclesAPI.citystatus.curse = 'None'
-            break
-        case 2:
-            cyclesAPI.citystatus.curse = 'Partial'
-            break
-        case 3:
-            cyclesAPI.citystatus.curse = 'Full'
-            break
+    data.cycles = {
+        activenightfalls: cyclesAPI.activenightfalls,
+        dailies: cyclesAPI.dailies
     }
 }
 
@@ -184,8 +168,45 @@ function updateVendorData() {
             vendor.vendors.push(vendorDisplay)
         }
     }
+
+    data.vendors = {
+        banshee: vendorDataAPI['672118013'].categories[0],
+        spider: vendorDataAPI['863940356'].categories[0],
+        ada: vendorDataAPI['2917531897'].categories[0]
+    }
+    if ('2190858386' in vendorDataAPI) {
+        data.vendors.xur = vendorDataAPI['2190858386'].categories[0];
+    }
+    console.log(vendorDataAPI['1576276905'].categories[0].items[5].sockets[1]);
 }
 
 function updateXurData() {
     xurAPI = JSON.parse(fs.readFileSync('storage/xur.json', 'utf8'));
+
+    if (xurAPI.present) {
+        if (xurAPI.found) {
+            data.xur = xurAPI.planet + ' > ' + xurAPI.zone + ' > ';
+            switch (xurAPI.planet) {
+                case 'Tower':
+                    data.xur += 'Behind Dead Orbit';
+                    break;
+                case 'Titan':
+                    data.xur += 'In a room';
+                    break;
+                case 'Io':
+                    data.xur += 'In his cave';
+                    break;
+                case 'Nessus':
+                    data.xur += 'In his tree';
+                    break;
+                case 'Earth':
+                    data.xur += 'On his cliff';
+                    break;
+            }
+        } else {
+            data.xur = 'Xur\'s here, but we haven\'t found him yet';
+        }
+    } else {
+        data.xur = 'Xur\'s fucked off';
+    }
 }

@@ -90,3 +90,28 @@ for (let i = 0; i < shaders.length; i++) {
         updateColors(shader.id);
     })
 }
+
+let muurigrid = document.getElementById('muuri-grid');
+if (muurigrid) {
+    let grid = new Muuri(muurigrid, {
+        layout: {
+            fillGaps: true
+        }
+    });
+}
+
+let tooltips = document.getElementsByClassName('tooltip');
+for (let i = 0; i < tooltips.length; i++) {
+    let tooltip = tooltips[i];
+    let item = tooltip.parentElement;
+    item.addEventListener('mouseenter', (event) => {
+        tooltip.classList.remove('hidden');
+    })
+    item.addEventListener('mouseleave', (event) => {
+        tooltip.classList.add('hidden');
+    })
+    item.addEventListener('mousemove', (event) => {
+        tooltip.style.left = (event.pageX).toString() + 'px';
+        tooltip.style.top = (event.pageY).toString() + 'px';
+    })
+}
