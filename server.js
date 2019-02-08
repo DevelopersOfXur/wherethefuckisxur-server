@@ -18,7 +18,7 @@ updateCycleData();
 updateVendorData();
 updateXurData();
 
-console.log(data);
+console.log(cyclesAPI);
 
 fs.watchFile('storage/cycles.json', updateCycleData);
 fs.watchFile('storage/vendor.json', updateVendorData);

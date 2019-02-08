@@ -3,7 +3,7 @@
 <div class="data-box-container">
     <div class="white-box data-box">
         <h3>Ascendant Challenge</h3>
-        <p class="flavor-text">{{ascendantchallenge.text}}</p>
+        <p class="flavor-text">{{ascendantchallenge.name}}</p>
         <a href="/data/guides/ascendantchallenge#ac{{ascendantchallenge.id}}">Guide</a>
     </div>
 
@@ -17,9 +17,9 @@
     <div class="white-box data-box">
         <h3>The Dreaming City</h3>
         <p>Curse Level:</p>
-        <p class="flavor-text">{{citystatus.curse}}</p>
+        <p class="flavor-text">{{citystatus.status}}</p>
         <p>Blind Well Boss</p>
-        <p class="flavor-text">{{citystatus.text}}</p>
+        <p class="flavor-text">{{citystatus.boss}}</p>
         <a href="/data/guides/blindwell#bw{{citystatus.id}}">Boss Guide</a>
     </div>
 
@@ -39,7 +39,7 @@
         <h3>Active Nightfalls</h3>
         <p class="flavor-text"></p>
         <ul id="nightfalls">
-            {{#each nightfalls}}
+            {{#each activenightfalls}}
             <li class="nightfall item">{{this}}</li>
             {{/each}}
         </ul>

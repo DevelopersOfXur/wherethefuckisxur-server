@@ -1,23 +1,7 @@
-<div class="vendor-item">
-    <img src="https://www.bungie.net{{display.icon}}">
-    {{#each costs}}
-    <div>
-        <img width="20" src="https://www.bungie.net{{display.icon}}">
-        {{amount}}
-    </div>
-    {{/each}}
-    <div class="tooltip hidden white-box">
-        {{display.name}}
-        {{#each sockets}}
-        <div class="item-socket">
-            {{#each plugs}}
-            <div class="item-plug">
-                <img width="40" src="https://www.bungie.net{{icon}}">
-                {{name}}
-            </div>
-            {{/each}}
-        </div>
-        {{display.name}}
-        {{/each}}
-    </div>
-</div>
+<p class="item">{{display.name}}</p>
+{{#each sockets}}
+{{#each plugs}}
+{{name}}
+{{/each}}
+<br>
+{{/each}}
