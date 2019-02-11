@@ -2,6 +2,7 @@
     <div class="grid-item wide">
         <div class="grid-content">
             <h1>{{xur}}</h1>
+            <p class="xur-location-details">{{msg.xurmsg}}</p>
             {{!-- <p class="xur-location-details">He's not <em>really</em> in Pittsburgh. Xûr will return Friday at <a href="https://wherethefuckisxur.com/faq.html">reset.</a></p> --}}
             {{!-- <p class="last-updated">Updated Tuesday, 12/18</p> --}}
         </div>
@@ -14,7 +15,7 @@
                 {{#each vendors.xur.items}}
                 <img src="images/engram.png" width="25px;" />
                 <li>
-                    <span class="item">{{display.name}} (PUT CLASS HERE PLS)</span><br />
+                    <span class="item">{{display.name}} {{#if class}}({{class}}){{/if}}</span><br />
                     {{#each perks}}
                     <span class="item-perk">{{name}}</span><br>
                     <span class="perk-desc">{{desc}}</span><br />

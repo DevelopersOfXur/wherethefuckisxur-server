@@ -9,6 +9,7 @@ let vendorData;
 let vendorDataAPI;
 let cyclesAPI;
 let xurAPI;
+let msgData;
 
 let vendorDesc = {
     '863940356': 'Big fat fallen selling some planet mats.'
@@ -17,12 +18,15 @@ let vendorDesc = {
 updateCycleData();
 updateVendorData();
 updateXurData();
+updateMsgData();
 
-console.log(cyclesAPI);
+console.log(data);
+console.log(data.vendors.xur.items);
 
 fs.watchFile('storage/cycles.json', updateCycleData);
 fs.watchFile('storage/vendor.json', updateVendorData);
 fs.watchFile('storage/xur.json', updateXurData);
+fs.watchFile('storage/msg.json', updateMsgData);
 
 app.engine('hbs', hbs.express4({
     partialsDir: __dirname + '/views/partials',
@@ -177,7 +181,6 @@ function updateVendorData() {
     if ('2190858386' in vendorDataAPI) {
         data.vendors.xur = vendorDataAPI['2190858386'].categories[0];
     }
-    console.log(vendorDataAPI['1576276905'].categories[0].items[5].sockets[1]);
 }
 
 function updateXurData() {
@@ -209,4 +212,11 @@ function updateXurData() {
     } else {
         data.xur = 'Xur\'s fucked off';
     }
+}
+
+function updateMsgData() {
+    let msgFile = fs.readFileSync('storage/msg.json', 'utf8');
+    msgData = JSON.parse(msgFile);
+
+    data.msg = msgData;
 }
