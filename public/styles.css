@@ -580,6 +580,16 @@ div.data-container {
   border-bottom: 1px solid var(--border-color);
 }
 
+.vendor-dropdown {
+  display: inline-grid;
+  grid-template-columns: auto auto auto auto;
+  width: 100%;
+}
+
+.vendor-option {
+
+}
+
 /* home screen */
 
 #muuri-grid {
@@ -608,17 +618,6 @@ div.data-container {
 .grid-item.big {
   width: 580px;
   height: 580px;
-}
-
-/* item stuff */
-
-.tooltip {
-  position: absolute;
-  pointer-events: none;
-}
-
-.hidden {
-  display: none;
 }
 
 /* On screens that are less than 700px wide, make the menu into a topbar */
