@@ -21,7 +21,6 @@ updateXurData();
 updateMsgData();
 
 console.log(data);
-console.log(data.vendors.xur.items);
 
 fs.watchFile('storage/cycles.json', updateCycleData);
 fs.watchFile('storage/vendor.json', updateVendorData);
