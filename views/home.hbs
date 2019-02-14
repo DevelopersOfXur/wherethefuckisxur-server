@@ -1,8 +1,8 @@
 <div id="muuri-grid">
     <div class="grid-item wide">
         <div class="grid-content">
-            <h1>{{xur}}</h1>
-            <p class="xur-location-details">{{msg.xurmsg}}</p>
+            <h1 class="page-title">{{xur}}</h1>
+            <h2 class="page-subtitle">{{msg.xurmsg}}</h2>
             {{!-- <p class="xur-location-details">He's not <em>really</em> in Pittsburgh. Xûr will return Friday at <a href="https://wherethefuckisxur.com/faq.html">reset.</a></p> --}}
             {{!-- <p class="last-updated">Updated Tuesday, 12/18</p> --}}
         </div>
@@ -30,7 +30,7 @@
 
     <div class="grid-item wide">
         <div class="grid-content">
-            <h3 class="line-header">Xûr Hotline</h3>
+            <h1 class="line-header">Xûr Hotline</h1>
             <p>Mind and spirit. Call now and hear the future. </p>
             <p>Xûr has the answers you seek. It's an answering machine. <br />Leave a goddamn message. </p>
             <h4><a class="hotline-number" href="tel:1-414-436-9013">1 (414) 436-9013</a></h4>
@@ -40,7 +40,7 @@
 
     <div class="grid-item wide">
         <div class="grid-content">
-            <h2 class="line-header">O'DAY.</h2>
+            <h1 class="line-header">O'DAY.</h1>
             <p>The man. The myth. The legend. With some help from a fan and the KoX team, the 15 year old case of
                 Frankie
                 O'Day has been solved.</em>
@@ -53,7 +53,7 @@
 
     <div class="grid-item">
         <div class="grid-content">
-            <h5 class="line-header">What The Fuck is New?</h5>
+            <h3 class="line-header">What The Fuck is New?</h3>
             <p>
                 <ul>
                     <li>New shader system! Including dark theme, and super special and AWESOME looking Christmas theme!</li>
@@ -68,8 +68,7 @@
 
     <div class="grid-item white-box">
         <div class="grid-content">
-            <h3>Dailies</h3>
-            <p class="flavor-text"></p>
+            <h2>Dailies</h2>
             <ul id="dailies">
                 <li class="dailies-today item">{{cycles.dailies.current}}</li>
                 <li class="dailies-and-then">And then...</li>
@@ -83,7 +82,6 @@
     <div class="grid-item white-box">
         <div class="grid-content">
             <h3>Active Nightfalls</h3>
-            <p class="flavor-text"></p>
             <ul id="nightfalls">
                 {{#each cycles.activenightfalls}}
                 <li class="nightfall item">{{this}}</li>
@@ -95,7 +93,7 @@
     <div class="grid-item tall white-box">
         <div class="grid-content">
             <h3><a href="/data/vendor/863940356">The Spider</a></h3>
-            <p class="flavor-text">Big Fat Fallen</p>
+            <h4>Big Fat Fallen</h4>
             <ul id="spiderinv">
                 {{#each vendors.spider.items}}
                 <li>
@@ -112,7 +110,7 @@
     <div class="grid-item white-box">
         <div class="grid-content">
             <h3><a href="/data/vendor/2917531897">Ada-1</a></h3>
-            <p class="flavor-text">Robo got ya weapons</p>
+            <h4>Robo got ya weapons</h4>
             <ul id="spiderinv">
                 {{#each vendors.ada.items}}
                 <li>
@@ -126,7 +124,7 @@
     <div class="grid-item white-box">
         <div class="grid-content">
             <h3><a href="/data/vendor/672118013">Banshee-44</a></h3>
-            <p class="flavor-text">Who are you</p>
+            <h4>Who are you</h4>
             <ul id="spiderinv">
                 {{#each vendors.banshee.items}}
                 <li>

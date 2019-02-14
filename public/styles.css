@@ -82,25 +82,6 @@ a:hover {
   color:var(--link-text-hover-color);
 }
 
-.center {
-  text-align:center;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  animation: var(--header-anim);
-  color:var(--main-text-color);
-  text-transform:uppercase;
-  letter-spacing:1px;
-  line-height:1em;
-}
-
-h1 {
-  font-size:2em;
-  text-align:center;
-  margin-bottom:5px;
-  text-align:center;
-}
-
 .button {
   width:100%;
   text-align:center;
@@ -257,16 +238,34 @@ nav .footer-menu {
 
 /* * * * * LAYOUT STYLES / HOMEPAGE * * * * * */
 
-#xur {
-  width:60%;
-  display:inline-grid;
+.flashy-anim {
+  animation: var(--header-anim);
+  color:var(--main-text-color);
 }
 
-.not-xur {
-  width:35%;
-  display:inline-grid;
-  padding-left:4%;
+.page-title {
+  text-align:center;
+  margin-bottom:5px;
+  text-transform:uppercase;
+  font-weight: bold;
 }
+
+.page-subtitle {
+  text-align: center;
+  font-weight: normal;
+}
+
+.line-header {
+  color:var(--main-text-color);
+  margin:0px;
+  padding-bottom:10px;
+  border-bottom:2px solid var(--line-border-color);
+  text-transform:capitalize;
+  color:var(--special-text-color);
+  font-weight: bold;
+}
+
+
 
 .white-box {
   border:1px solid var(--border-color);
@@ -289,21 +288,6 @@ nav .footer-menu {
   font-size:1.7em;
   margin:0px;
   color:var(--main-text-color);
-}
-
-.white-box .flavor-text, .flavor-text {
-  text-align:center;
-  font-size:1.5em;
-}
-
-.line-header {
-  color:var(--main-text-color);
-  margin:0px;
-  padding-bottom:10px;
-  border-bottom:2px solid var(--line-border-color);
-  text-transform:capitalize;
-  font-size:2em;
-  color:var(--special-text-color);
 }
 
 .white-box .item {
@@ -349,16 +333,17 @@ nav .footer-menu {
   font-size:1.2em;
 }
 
-.privacy-policy {
-  max-width:700px;
-  margin:auto;
-}
-
 .last-updated {
   font-size:.7em;
   text-align:right;
   font-style:italic;
   color:var(--special-text-color);
+}
+
+/* * * * * ARCHIVE STYLES * * * * */
+
+.archive-section {
+  padding-top: 30px;
 }
 
 /* * * * * XUR STYLES * * * * */
@@ -470,12 +455,6 @@ nav .footer-menu {
 
 /* * * * * GUIDE, FAQ, ARCHIVES STYLES * * * * * */
 
-.wanted-list p, .a-challenges p, .guide-list p {
-  border-bottom:2px solid var(--line-border-color);
-  margin-top:5px;
-  padding-bottom:20px;
-}
-
 .wanted-list h2, .a-challenges h3, .no-line-header, .guide-list h3 {
   color:var(--main-text-color);
   margin:0px;
@@ -485,18 +464,10 @@ nav .footer-menu {
   line-height:1em;
 }
 
-.guide-section, .archive-section {
-  padding-top:30px;
-}
-
 .current-ascendant {
   text-align:center;
   font-size:1.5em;
   margin:0px;
-}
-
-.guide-text.flavor-text {
-  border-bottom:0px;
 }
 
 .faq-list {
@@ -513,6 +484,7 @@ div.data-container {
   display: inline-grid;
   width: 65%;
   padding-left: 50px;
+  padding-top: 30px;
 }
 
 .side-menu {
@@ -527,6 +499,7 @@ div.data-container {
   border:1px solid var(--border-color);
   background:var(--secondary-background-color);
   padding:10px 20px;
+  float: left;
 }
 
 .side-menu a {
@@ -670,11 +643,6 @@ div.data-container {
     margin-bottom:30px;
     margin-top:0px;
   }
-
-  div.guides-container {
-    width:100%;
-  }
-
 }
 
 

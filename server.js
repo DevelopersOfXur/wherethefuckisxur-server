@@ -77,6 +77,7 @@ app.get('/guides/escalationprotocol', (req, res) => {
 })
 
 app.get('/guides/blindwell', (req, res) => {
+    console.log(cyclesAPI.citystatus);
     res.render('guides/blindwell', cyclesAPI.citystatus);
 })
 
@@ -108,16 +109,8 @@ app.get('/privacy-policy', (req, res) => {
     res.render('privacy-policy');
 })
 
-app.get('/quiz-results', (req, res) => {
-    res.render('quiz-results');
-})
-
 app.get('/xur', (req, res) => {
     res.redirect('/api/xur');
-})
-
-app.get('/api/data', (req, res) => {
-    res.send(dataAPI);
 })
 
 app.get('/api/vendor', (req, res) => {
