@@ -332,6 +332,8 @@ nav .footer-menu {
   overflow-y: auto;
   white-space: nowrap;
   height: 400px;
+  margin: 0 -30px;
+  padding: 0 30px;
 }
 
 .home-data {
