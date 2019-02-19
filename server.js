@@ -4,6 +4,11 @@ const fs = require('fs');
 
 var app = express();
 
+hbs.registerHelper('noPurchase', (text, opts) => {
+    let newText = text.replace(/purchase /ig, '');
+    return newText
+})
+
 let data = {};
 let vendorData;
 let vendorDataAPI;

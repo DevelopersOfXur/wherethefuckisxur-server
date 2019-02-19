@@ -236,7 +236,7 @@ nav .footer-menu {
   border-left:1px solid var(--border-color);
 }
 
-/* * * * * LAYOUT STYLES / HOMEPAGE * * * * * */
+/* * * * * LAYOUT STYLES * * * * * */
 
 .flashy-anim {
   animation: var(--header-anim);
@@ -282,6 +282,7 @@ nav .footer-menu {
   list-style:none;
   margin-left:0px;
   padding-left:0px;
+  text-align:left;
 }
 
 .white-box h3, .white-box h2, .white-box h1 {
@@ -311,8 +312,49 @@ nav .footer-menu {
   font-weight: 600;
 }
 
-.white-box ul {
-  text-align:left;
+.last-updated {
+  font-size:.7em;
+  text-align:right;
+  font-style:italic;
+  color:var(--special-text-color);
+}
+
+/* * * * * HOMEPAGE * * * * * */
+
+.home-xur {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.home-data-container {
+  overflow-x: auto;
+  overflow-y: auto;
+  white-space: nowrap;
+  height: 400px;
+}
+
+.home-data {
+  width: 175px;
+  display: inline-block;
+  vertical-align: top;
+  height: 325px;
+  white-space: normal;
+}
+
+.home-data.spider {
+  width: 400px;
+}
+
+.home-spiderinv {
+  display: flex;
+  flex-flow: column wrap;
+  height: 250px;
+}
+
+.home-spiderinv-item {
+  display: inline-block;
+  width: 200px;
 }
 
 .dailies-today {
@@ -327,17 +369,6 @@ nav .footer-menu {
 
 .nightfall {
   padding-bottom:10px;
-}
-
-.guides p {
-  font-size:1.2em;
-}
-
-.last-updated {
-  font-size:.7em;
-  text-align:right;
-  font-style:italic;
-  color:var(--special-text-color);
 }
 
 /* * * * * ARCHIVE STYLES * * * * */
