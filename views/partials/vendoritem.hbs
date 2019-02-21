@@ -1,10 +1,12 @@
-<p class="item">{{display.name}}</p>
+<p class="item">{{display.name}}{{#if class}} ({{class}}) {{/if}}</p>
 {{#if bounty}}
 {{display.description}}
 {{/if}}
 {{#each sockets}}
-{{#each plugs}}
-{{name}}
-{{/each}}
-<br>
+<div class="vendor-plugs">
+    {{#each plugs}}
+    <p class="vendor-plug">{{name}}</p>
+    {{/each}}
+
+</div>
 {{/each}}

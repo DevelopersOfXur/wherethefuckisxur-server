@@ -297,6 +297,7 @@ nav .footer-menu {
   font-weight:600;
   font-size:1.2em;
   color: var(--special-text-color);
+  text-align: left;
 }
 
 .item-perk {
@@ -570,114 +571,50 @@ div.data-container {
 
 .data-box {
   flex: none;
-  width: 300px;
+  width: 315px;
+  margin-bottom: 25px;
 }
 
 .announcement {
   text-align: center;
 }
 
-.vendor-item {
-  display: inline-block;
-  vertical-align: top;
-}
-
-.item-socket {
-  border-bottom: 1px solid var(--border-color);
+.vendor-desc {
+  text-align: center;
 }
 
 .vendor-dropdown {
   display: inline-grid;
+  row-gap: 5px;
   grid-template-columns: auto auto auto auto;
   width: 100%;
+  margin-bottom: 25px;
 }
 
-.vendor-option {
-
-}
-
-/* home screen */
-
-#muuri-grid {
-  position: relative;
-}
-
-.grid-item {
+.vendor-item {
   display: block;
-  position: absolute;
-  margin: 10px;
-  padding: 25px;
-  width: 250px;
-  height: 250px;
+  text-align: left;
+  padding-bottom: 10px;
 }
 
-.grid-item.wide {
-  width: 580px;
-  height: 250px;
+.vendor-plugs {
+  margin-bottom: 5px;
 }
 
-.grid-item.tall {
-  width: 250px;
-  height: 580px;
+.vendor-plug:first-child {
+  padding-left: 0;
 }
 
-.grid-item.big {
-  width: 580px;
-  height: 580px;
+.vendor-plug:last-child {
+  border-right: 0;
 }
 
-/* On screens that are less than 700px wide, make the menu into a topbar */
-@media screen and (max-width: 700px) {
-  .side-menu {
-    width: 100%;
-    height: auto;
-    position: relative;
-    padding:20px 0;
-  }
-
-  .side-menu a {
-    float: left;
-    border-bottom:0px;
-    border-right:1px solid var(--border-color);
-    padding:0 15px;
-    text-align:center;
-  }
-
-  .side-menu a:last-child {
-    border-right:0px;
-  }
-
-  div.data-container {
-    margin-left: 0;
-    padding-left: 0;
-    width:60%;
-  }
-
-  .flex {
-    flex-direction: column;
-    align-items: stretch;
-  }
+.vendor-plug {
+  display: inline-block;
+  border-right: 1px solid var(--border-color);
+  padding: 0 10px;
+  margin: 0;
 }
-
-/* On screens that are less than 400px, display the menu vertically, instead of horizontally */
-@media screen and (max-width: 400px) {
-  .side-menu a {
-    text-align: center;
-    float: none;
-    margin:0px;
-    border-bottom:1px solid var(--border-color);
-    border-right:0px;
-    padding: 15px 0px;
-  }
-
-  .side-menu {
-    width:100%;
-    padding:0px;
-    margin-bottom:30px;
-    margin-top:0px;
-  }
-}
-
 
 /* * * * * MAIN MEDIA QUERIES * * * * */
 
@@ -713,17 +650,6 @@ div.data-container {
   margin-bottom:10px;
 }
 
-#xur {
-  width:100%;
-  display:block;
-}
-
-.not-xur {
-  width:100%;
-  display:block;
-  padding-left:0;
-}
-
 .side-menu a {
   text-align: center;
   float: none;
@@ -753,6 +679,33 @@ div.data-container {
 
 .shader {
   right:15px;
+}
+
+.side-menu a {
+  text-align: center;
+  float: none;
+  margin:0px;
+  border-bottom:1px solid var(--border-color);
+  border-right:0px;
+  padding: 15px 0px;
+}
+
+.side-menu {
+  width:100%;
+  padding:0px;
+  margin-bottom:30px;
+  margin-top:0px;
+}
+
+div.data-container {
+  margin-left: 0;
+  padding-left: 0;
+  width:60%;
+}
+
+.flex {
+  flex-direction: column;
+  align-items: stretch;
 }
 
 }

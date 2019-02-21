@@ -17,7 +17,25 @@ let xurAPI;
 let msgData;
 
 let vendorDesc = {
-    '863940356': 'Big fat fallen selling some planet mats.'
+    '3982706173': '"I\'M REALLY AGGRESSIVE BUT ALSO NERDY AND HAVE A FUNNY VOICE BLAH BLAH VUVUZELA"', //Asher Mir
+    '3603221665': 'You all know Shaxx is the real reason to play Crucible', //Lord Shaxx
+    '3361454721': 'Fenchurch has been gone a real long time Tess, I think it\'s time to let them go', //Tess Everis
+    '3347378076': 'Say hi to your clan mates for her', //Suraya Hawthorne
+    '2917531897': 'Robo got ya weapon frames', //Ada-1
+    '2398407866': 'I like to think he drops things all the time cuz he\'s wearing that blindfold', //Brother Vance
+    '1735426333': 'GIVE ME THE 14 KELVINS YOU FUCK', //Ana Bray
+    '1576276905': 'I\'m 99% sure no computer bug could cause a robot to go between depressed and optimistic', //Failsafe
+    '1265988377': 'Just sweepin\' away', //Benedict 99-40
+    '1062861569': 'Do you think she ever goes swimming in those giant oceans', //Sloane
+    '997622907': '༼ つ ◕_◕ ༽つ ༼ つ ◕_◕ ༽つ gib silver ༼ つ ◕_◕ ༽つ ༼ つ ◕_◕ ༽つ', //Prismatic Matrix
+    '919809084': 'it chrismas                    merr chrismas', //Eva Levante
+    '863940356': 'Big fat fallen selling some planet mats.', //Spider
+    '672118013': 'Who are you', //Banshee-44
+    '396892126': 'I\'m a brit look at me pip pip cheerio', //Devrim Kay
+    '248695599': 'Totally not a bad guy nothing to see here', //The Drifter
+    '69482069': 'Whether we like or not, we\'ve stepped into a war on mars', //Commander Zavala
+    '895295461': 'I can\'t decide if I like his voice or Shaxx\'s more', //Lord Saladin
+    '2190858386': 'His will is not his own' //Xur
 }
 
 updateCycleData();
