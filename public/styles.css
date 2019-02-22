@@ -286,8 +286,7 @@ nav .footer-menu {
 }
 
 .white-box h3, .white-box h2, .white-box h1 {
-  font-size:1.7em;
-  margin:0px;
+  margin: 0;
   color:var(--main-text-color);
 }
 
@@ -321,20 +320,35 @@ nav .footer-menu {
 }
 
 /* * * * * HOMEPAGE * * * * * */
-
+/* 
 .home-xur {
   width: 100%;
   max-width: 600px;
   margin: 20px auto;
+} */
+
+.home-xur {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: stretch;
+  margin: 20px 0;
+}
+
+.home-xur-box {
+  width: 500px;
+  margin-bottom: 25px;
 }
 
 .home-data-container {
-  overflow-x: auto;
-  overflow-y: auto;
-  white-space: nowrap;
-  height: 400px;
-  margin: 0 -30px;
-  padding: 0 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+.psa {
+  margin-bottom: 25px;
 }
 
 .home-data {
@@ -343,6 +357,7 @@ nav .footer-menu {
   vertical-align: top;
   height: 325px;
   white-space: normal;
+  margin-bottom: 25px;
 }
 
 .home-data.spider {
@@ -358,6 +373,11 @@ nav .footer-menu {
 .home-spiderinv-item {
   display: inline-block;
   width: 200px;
+}
+
+#map {
+  width:80%;
+  margin: 25px auto;
 }
 
 .dailies-today {
@@ -386,29 +406,6 @@ nav .footer-menu {
   text-align:center;
   font-size:1.5em;
   margin:0px;
-}
-
-#xurinv .item-perk {
-  font-weight:600;
-  text-align:left;
-}
-
-#xurinv .perk-desc {
-  text-align:left;
-}
-
-#xurinv li {
-  border-bottom: 2px solid var(--line-border-color);
-  padding-bottom:15px;
-}
-
-#xurinv li:last-child  {
-  border-bottom: 0px;
-  padding-bottom: 0px;
-}
-
-#xurinv {
-  padding: 0px 20px;
 }
 
 /* * * * * HOTLINE STYLES * * * * * */
@@ -621,6 +618,11 @@ div.data-container {
 @media (min-width:320px) and (max-width:640px) {
 /* smartphones, iPhone, portrait 480x320 phones */
 
+#map {
+  width:100%;
+  margin:auto;
+}
+
 .logo {
   width:60%;
   height:150px;
@@ -708,6 +710,16 @@ div.data-container {
   align-items: stretch;
 }
 
+.home-data-container {
+  overflow-x: auto;
+  overflow-y: auto;
+  white-space: nowrap;
+  height: 400px;
+  margin: 0 -30px;
+  padding: 0 30px;
+  display: block;
+}
+
 }
 
 @media (min-width:641px) and (max-width:780px) {
@@ -739,6 +751,15 @@ landscape 800x480 or 854x480 phones */
 
 div.data-container {
   width:60%;
+}
+
+.home-data-container {
+  overflow-x: auto;
+  overflow-y: auto;
+  white-space: nowrap;
+  height: 400px;
+  margin: 0 -30px;
+  padding: 0 30px;
 }
 
 }

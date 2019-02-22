@@ -9,6 +9,11 @@ hbs.registerHelper('noPurchase', (text, opts) => {
     return newText
 })
 
+hbs.registerHelper('noCaps', (text, opts) => {
+    let newText = text.toLowerCase();
+    return newText;
+})
+
 let data = {};
 let vendorData;
 let vendorDataAPI;
@@ -44,6 +49,7 @@ updateXurData();
 updateMsgData();
 
 console.log(data);
+// console.log(data.vendors.xur);
 
 fs.watchFile('storage/cycles.json', updateCycleData);
 fs.watchFile('storage/vendor.json', updateVendorData);
@@ -203,6 +209,7 @@ function updateXurData() {
 
     if (xurAPI.present) {
         if (xurAPI.found) {
+            data.xurloc = xurAPI.planet;
             data.xur = xurAPI.planet + ' > ' + xurAPI.zone + ' > ';
             switch (xurAPI.planet) {
                 case 'Tower':
@@ -234,4 +241,5 @@ function updateMsgData() {
     msgData = JSON.parse(msgFile);
 
     data.msg = msgData;
+    data.psa
 }

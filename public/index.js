@@ -14,7 +14,8 @@ let themes = {
         lineBorderColor: '#c2cacc',
         engramUrl: 'images/engram.png',
         headerAnim: 'none',
-        cursor: 'auto'
+        cursor: 'auto',
+        mapImg: 'light'
     },
     'shader-dark': {
         mainTextColor: '#fff',
@@ -31,7 +32,8 @@ let themes = {
         lineBorderColor: '#c2cacc',
         engramUrl: 'images/engram.png',
         headerAnim: 'none',
-        cursor: 'auto'
+        cursor: 'auto',
+        mapImg: 'dark'
     },
     'shader-christmas': {
         mainTextColor: '#2b612b',
@@ -48,7 +50,44 @@ let themes = {
         lineBorderColor: '#f40028',
         engramUrl: 'images/snowflake-icon.png',
         headerAnim: 'flashing 0.5s linear 0s infinite alternate',
-        cursor: "url('images/tree.cur'),auto"
+        cursor: "url('images/tree.cur'),auto",
+        mapImg: 'christmas'
+    },
+    'conversation-hearts': {
+        mainTextColor: '#8628cc',
+        menuTextColor: '#ff0ec0',
+        specialTextColor: '#ff0ec0',
+        linkTextColor: '#0b61fd',
+        linkTextHoverColor: '#0ba4fd',
+        footerTextColor: '#690a9a',
+        mainBackgroundColor: '#f9caca',
+        secondaryBackgroundColor: '#fffc76',
+        blockBackgroundColor: 'rgba(66,133,244,0.3)',
+        footerBackgroundColor: '#88f588',
+        borderColor: '#fff',
+        lineBorderColor: '#ff0ec0',
+        engramUrl: 'images/conversation-heart.png',
+        headerAnim: 'none',
+        cursor: 'auto',
+        mapImg: 'light'
+    },
+    'crimson-days': {
+        mainTextColor: '#fba7a7',
+        menuTextColor: '#fff',
+        specialTextColor: '#fff',
+        linkTextColor: '#fff',
+        linkTextHoverColor: '#ff3e50',
+        footerTextColor: '#ffffff',
+        mainBackgroundColor: 'url(images/petals.gif), #61000a',
+        secondaryBackgroundColor: '#d00404',
+        blockBackgroundColor: '#981212',
+        footerBackgroundColor: '#61000a',
+        borderColor: '#fba7a7',
+        lineBorderColor: '#ff3e50',
+        engramUrl: 'images/cupid-bow.png',
+        headerAnim: 'none',
+        cursor: "url('images/heart.cur'),auto",
+        mapImg: 'dark'
     }
 }
 
@@ -74,6 +113,12 @@ function updateColors(themeName) {
     for (let i = 0; i < engrams.length; i++) {
         engrams[i].src = theme.engramUrl;
     }
+    let map = document.getElementById('map');
+    if (map) {
+        let newsrc = map.src.split('_');
+        newsrc.pop()
+        map.src = newsrc.join('_') + '_' + theme.mapImg + '.png';
+    }
 }
 
 let themeCookie = document.cookie.replace(/(?:(?:^|.*;\s*)theme\s*\=\s*([^;]*).*$)|^.*$/, "$1");
@@ -89,13 +134,4 @@ for (let i = 0; i < shaders.length; i++) {
     shader.addEventListener('click', event => {
         updateColors(shader.id);
     })
-}
-
-let muurigrid = document.getElementById('muuri-grid');
-if (muurigrid) {
-    let grid = new Muuri(muurigrid, {
-        layout: {
-            fillGaps: true
-        }
-    });
 }

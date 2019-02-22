@@ -1,23 +1,28 @@
 <div class="home-xur">
-    <div class="white-box">
-        <h1 class="page-title">{{xur}}</h1>
-        <h2 class="page-subtitle">{{msg.xurmsg}}</h2>
-        {{!-- <p class="xur-location-details">He's not <em>really</em> in Pittsburgh. Xûr will return Friday at <a href="https://wherethefuckisxur.com/faq.html">reset.</a></p> --}}
-        {{!-- <p class="last-updated">Updated Tuesday, 12/18</p> --}}
-        {{#if vendors.xur}}
+    <div class="home-xur-box">
+        <div class="psa white-box">
+            <h1>PSA</h1>
+            <h3>{{msg.psa}}</h3>
+        </div>
+        <div class="white-box">
+            <h1 class="page-title">{{xur}}</h1>
+            <h2 class="page-subtitle">{{msg.xurmsg}}</h2>
+            {{!-- <p class="last-updated">Updated Tuesday, 12/18</p> --}}
+            <img id="map" src="/images/{{noCaps xurloc}}_map_light.png">
+        </div>
+    </div>
+    <div class="white-box home-xur-box">
         <h3>Xûr's Inventory</h3>
-        <ul id="xurinv">
+        {{#if vendors.xur}}
+        <div class="vendor-sales">
+            <hr>
             {{#each vendors.xur.items}}
-            <img src="images/engram.png" width="25px;" />
-            <li>
-                <span class="item">{{display.name}} {{#if class}}({{class}}){{/if}}</span><br />
-                {{#each perks}}
-                <span class="item-perk">{{name}}</span><br>
-                <span class="perk-desc">{{desc}}</span><br />
-                {{/each}}
-            </li>
+            <div class="vendor-item">
+                {{> vendoritem}}
+                <hr>
+            </div>
             {{/each}}
-        </ul>
+        </div>
         {{/if}}
     </div>
 </div>
