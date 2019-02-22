@@ -694,6 +694,9 @@ div.data-container {
 }
 
 .side-menu {
+  position: static;
+  left: auto;
+  top: auto;
   width:100%;
   padding:0px;
   margin-bottom:30px;
@@ -734,7 +737,7 @@ div.data-container {
 div.data-container {
   margin-left: 0;
   padding-left: 0;
-  width:60%;
+  width:100%;
 }
 
 .flex {
@@ -755,6 +758,14 @@ div.data-container {
 .home-riff {
   width: 100%;
   margin: 0 5px 25px 5px;
+}
+
+.data-box-container {
+  width: 100%;
+}
+
+.data-box {
+  width: 87%;
 }
 
 }
