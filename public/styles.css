@@ -301,8 +301,9 @@ h3, h2, h1 {
 
 .grey-box {
   border: 2px dashed var(--main-text-color);
-  padding: 15px;
+  padding: 20px;
   margin-bottom: 25px;
+  text-align:center;
 }
 
 .item-perk {
@@ -401,6 +402,10 @@ h3, h2, h1 {
 
 .home-riff.wide {
   width: 500px;
+}
+
+.whats-new {
+  text-align: left;
 }
 
 .dailies-today {
