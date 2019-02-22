@@ -40,7 +40,8 @@ let vendorDesc = {
     '248695599': 'Totally not a bad guy nothing to see here', //The Drifter
     '69482069': 'Whether we like or not, we\'ve stepped into a war on mars', //Commander Zavala
     '895295461': 'I can\'t decide if I like his voice or Shaxx\'s more', //Lord Saladin
-    '2190858386': 'His will is not his own' //Xur
+    '2190858386': 'His will is not his own', //Xur
+    '1841717884': '(Currently Petra Venj\'s vendor inventory is broken due to a Bungie API bug, not much we can do here sorry)' //Petra Venj
 }
 
 updateCycleData();
