@@ -11,7 +11,7 @@
             <img id="map" src="/images/{{noCaps xurloc}}_map_light.png">
         </div>
     </div>
-    <div class="white-box home-xur-box">
+    <div class="white-box home-xur-box xur-inventory">
         <h3>Xûr's Inventory</h3>
         {{#if vendors.xur}}
         <div class="vendor-sales">
@@ -88,35 +88,37 @@
     </div>
 </div>
 
-<div class="grey-box wide">
-    <h1 class="line-header">Xûr Hotline</h1>
-    <p>Mind and spirit. Call now and hear the future. </p>
-    <p>Xûr has the answers you seek. It's an answering machine. <br />Leave a goddamn message. </p>
-    <h4><a class="hotline-number" href="tel:1-414-436-9013">1 (414) 436-9013</a></h4>
-</div>
+<div class="home-riff-container">
+    <div class="grey-box home-riff">
+        <h2>Thought of the Day</h2>
+        <p>{{msg.riff}}</p>
+    </div>
 
-<div class="grey-box wide">
-    <h1 class="line-header">O'DAY.</h1>
-    <p>The man. The myth. The legend. With some help from a fan and the KoX team, the 15 year old case of
-        Frankie
-        O'Day has been solved.</em>
-    </p>
-    <iframe width="100%" height="150" scrolling="no" frameborder="no" allow="autoplay"
-        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/546801483&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-</div>
+    <div class="grey-box home-riff">
+        <h3 class="line-header">What The Fuck is New?</h3>
+        <p>
+            <ul>
+                <li>HOLY SHIT</li>
+                <li>COOL AND NEW</li>
+                <li>LOTS OF STUFF</li>
+            </ul>
+        </p>
+    </div>
 
+    <div class="grey-box home-riff wide">
+        <h1 class="line-header">Xûr Hotline</h1>
+        <p>Mind and spirit. Call now and hear the future. </p>
+        <p>Xûr has the answers you seek. It's an answering machine. <br />Leave a goddamn message. </p>
+        <h4><a class="hotline-number" href="tel:1-414-436-9013">1 (414) 436-9013</a></h4>
+    </div>
 
-<div class="grey-box">
-    <h3 class="line-header">What The Fuck is New?</h3>
-    <p>
-        <ul>
-            <li>New shader system! Including dark theme, and super special and AWESOME looking Christmas theme!</li>
-            <li>Cookie Recipes for The Dawning added to the <a
-                    href="https://wherethefuckisxur.com/guides.html#dawning-recipes">GUIDES</a>
-                page!</li>
-            <li>New episode of <a
-                    href="https://soundcloud.com/user-229936693/the-curious-case-of-frankie-oday-solved">Three
-                    Words or Less</a></li>
-        </ul>
-    </p>
+    <div class="grey-box home-riff wide">
+        <h1 class="line-header">O'DAY.</h1>
+        <p>The man. The myth. The legend. With some help from a fan and the KoX team, the 15 year old case of
+            Frankie
+            O'Day has been solved.</em>
+        </p>
+        <iframe width="100%" height="150" scrolling="no" frameborder="no" allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/546801483&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+    </div>
 </div>
