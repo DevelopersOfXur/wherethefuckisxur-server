@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "testdata": "node server.js --test-data",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

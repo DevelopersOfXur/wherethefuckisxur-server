@@ -4,6 +4,14 @@ const fs = require('fs');
 
 var app = express();
 
+var dataDir = 'storage';
+
+process.argv.forEach((val, index, arr) => {
+    if (val == '--test-data') {
+        dataDir = 'test-data';
+    }
+})
+
 hbs.registerHelper('noPurchase', (text, opts) => {
     let newText = text.replace(/purchase /ig, '');
     return newText
@@ -52,10 +60,10 @@ updateMsgData();
 console.log(data);
 // console.log(data.vendors.xur);
 
-fs.watchFile('storage/cycles.json', updateCycleData);
-fs.watchFile('storage/vendor.json', updateVendorData);
-fs.watchFile('storage/xur.json', updateXurData);
-fs.watchFile('storage/msg.json', updateMsgData);
+fs.watchFile(dataDir + '/cycles.json', updateCycleData);
+fs.watchFile(dataDir + '/vendor.json', updateVendorData);
+fs.watchFile(dataDir + '/xur.json', updateXurData);
+fs.watchFile(dataDir + '/msg.json', updateMsgData);
 
 app.engine('hbs', hbs.express4({
     partialsDir: __dirname + '/views/partials',
@@ -162,7 +170,7 @@ app.listen(80, () => {
 })
 
 function updateCycleData() {
-    let cyclesFile = fs.readFileSync('storage/cycles.json', 'utf8');
+    let cyclesFile = fs.readFileSync(dataDir + '/cycles.json', 'utf8');
     cyclesAPI = JSON.parse(cyclesFile);
 
     data.cycles = {
@@ -172,7 +180,7 @@ function updateCycleData() {
 }
 
 function updateVendorData() {
-    let vendorFile = fs.readFileSync('storage/vendor.json', 'utf8');
+    let vendorFile = fs.readFileSync(dataDir + '/vendor.json', 'utf8');
     vendorDataAPI = JSON.parse(vendorFile);
     vendorData = JSON.parse(vendorFile);
 
@@ -206,7 +214,7 @@ function updateVendorData() {
 }
 
 function updateXurData() {
-    xurAPI = JSON.parse(fs.readFileSync('storage/xur.json', 'utf8'));
+    xurAPI = JSON.parse(fs.readFileSync(dataDir + '/xur.json', 'utf8'));
 
     if (xurAPI.present) {
         if (xurAPI.found) {
@@ -238,7 +246,7 @@ function updateXurData() {
 }
 
 function updateMsgData() {
-    let msgFile = fs.readFileSync('storage/msg.json', 'utf8');
+    let msgFile = fs.readFileSync(dataDir + '/msg.json', 'utf8');
     msgData = JSON.parse(msgFile);
 
     data.msg = msgData;
