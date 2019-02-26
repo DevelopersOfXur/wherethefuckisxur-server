@@ -544,6 +544,7 @@ div.data-container {
   width: 65%;
   padding-left: 50px;
   padding-top: 30px;
+  min-height: 300px;
 }
 
 .side-menu {
