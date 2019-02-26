@@ -2,29 +2,31 @@
 
 <div class="data-box-container">
     <div class="white-box data-box">
-        <h3>Ascendant Challenge</h3>
-        <h3 class="flavor-text">{{ascendantchallenge.name}}</h3>
+        <h2>Ascendant Challenge</h2>
+        <p><h3 class="flavor-text">{{ascendantchallenge.name}}</h3></p>
         <a href="/data/guides/ascendantchallenge#ac{{ascendantchallenge.id}}">Guide</a>
     </div>
 
     <div class="white-box data-box">
-        <h3>Escalation Protocol</h3>
-        <h3 class="flavor-text">{{escalationprotocol.boss}}</h3>
-        <h3 class="flavor-text">{{escalationprotocol.gun}}</h3>
+        <h2>Escalation Protocol</h2>
+        <p>Boss:</p>
+        <p><h3 class="flavor-text">{{escalationprotocol.boss}}</h3></p>
+        <p>Gun:</p>
+        <p><h3 class="flavor-text">{{escalationprotocol.gun}}</h3></p>
         <a href="/data/guides/escalationprotocol#ep{{escalationprotocol.id}}">Guide</a>
     </div>
 
     <div class="white-box data-box">
-        <h3>The Dreaming City</h3>
+        <h2>The Dreaming City</h2>
         <p>Curse Level:</p>
-        <p class="flavor-text">{{citystatus.status}}</p>
+        <p class="flavor-text"><h3>{{citystatus.status}}</h3></p>
         <p>Blind Well Boss</p>
-        <p class="flavor-text">{{citystatus.boss}}</p>
+        <p class="flavor-text"><h3>{{citystatus.boss}}</h3></p>
         <a href="/data/guides/blindwell#bw{{citystatus.id}}">Boss Guide</a>
     </div>
 
     <div class="white-box data-box">
-        <h3>Dailies</h3>
+        <h2>Dailies</h2>
         <p class="flavor-text"></p>
         <ul id="dailies">
             <li class="dailies-today item">{{dailies.current}}</li>
@@ -36,7 +38,7 @@
     </div>
 
     <div class="white-box data-box">
-        <h3>Active Nightfalls</h3>
+        <h2>Active Nightfalls</h2>
         <p class="flavor-text"></p>
         <ul id="nightfalls">
             {{#each activenightfalls}}
