@@ -8,7 +8,9 @@
             <h1 class="page-title">{{xur}}</h1>
             <h2 class="page-subtitle">{{msg.xurmsg}}</h2>
             {{!-- <p class="last-updated">Updated Tuesday, 12/18</p> --}}
+            {{#if xurloc}}
             <img id="map" src="/images/{{noCaps xurloc}}_map_light.png">
+            {{/if}}
         </div>
     </div>
     {{#if vendors.xur}}
