@@ -11,9 +11,9 @@
             <img id="map" src="/images/{{noCaps xurloc}}_map_light.png">
         </div>
     </div>
+    {{#if vendors.xur}}
     <div class="white-box home-xur-box xur-inventory">
         <h1>Xûr's Inventory</h1>
-        {{#if vendors.xur}}
         <div class="vendor-sales">
             <hr>
             {{#each vendors.xur.items}}
@@ -23,8 +23,8 @@
             </div>
             {{/each}}
         </div>
-        {{/if}}
     </div>
+    {{/if}}
 </div>
 
 <div class="home-data-container">
@@ -43,7 +43,7 @@
         <h3>Active Nightfalls</h3>
         <ul id="nightfalls">
             {{#each cycles.activenightfalls}}
-            <li class="item">{{this}}</li>
+            <li class="item"><p>{{this}}</p></li>
             {{/each}}
         </ul>
     </div>
