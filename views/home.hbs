@@ -1,9 +1,5 @@
 <div class="home-xur">
     <div class="home-xur-box">
-        <div class="psa white-box">
-            <h1>PSA</h1>
-            <h3>{{msg.psa}}</h3>
-        </div>
         <div class="white-box">
             <h1 class="page-title">{{xur}}</h1>
             <h2 class="page-subtitle">{{msg.xurmsg}}</h2>
@@ -11,6 +7,11 @@
             {{#if xurloc}}
             <img id="map" src="/images/{{noCaps xurloc}}_map_light.png">
             {{/if}}
+        </div>
+
+        <div class="psa white-box">
+            <h1>PSA</h1>
+            <h3>{{msg.psa}}</h3>
         </div>
     </div>
     {{#if vendors.xur}}
@@ -45,7 +46,9 @@
         <h3>Active Nightfalls</h3>
         <ul id="nightfalls">
             {{#each cycles.activenightfalls}}
-            <li class="item"><p>{{this}}</p></li>
+            <li class="item">
+                <p>{{this}}</p>
+            </li>
             {{/each}}
         </ul>
     </div>
@@ -109,7 +112,9 @@
 
     <div class="grey-box home-riff">
         <h2 class="line-header">Friendgame</h2>
-        <p><h2><a href="https://discord.gg/Ut4qTZp">Kitties of Xûr</a></h2></p>
+        <p>
+            <h2><a href="https://discord.gg/Ut4qTZp">Kitties of Xûr</a></h2>
+        </p>
         <p>Official WTFIX Development Discord</p>
         <h2><a href="https://solarian.net">Solarian Clan</a></h2>
         <p>Official clan of WTFIX</p>
@@ -134,7 +139,9 @@
 
     <div class="grey-box home-riff wide">
         <h1 class="line-header">Friends of Xur</h1>
-        <p><h2><a href="https://twitch.tv/xgladd">xGladd</a></h2></p>
+        <p>
+            <h2><a href="https://twitch.tv/xgladd">xGladd</a></h2>
+        </p>
         <p>He linked us so we link him. Thanks Gladd ❤</p>
         <h2><a href="https://braytech.org">Braytech.org</a></h2>
         <p>Dev friend of the site, and great resource for tracking yo shit. Looks fuckin gorgeous too.</p>
