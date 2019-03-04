@@ -165,8 +165,8 @@ app.get('/api/xur', (req, res) => {
 
 app.use(express.static('public'));
 
-app.listen(80, () => {
-    console.log('Server listening on port 80...');
+app.listen(8000, () => {
+    console.log('Server listening on port 8000...');
 })
 
 function updateCycleData() {

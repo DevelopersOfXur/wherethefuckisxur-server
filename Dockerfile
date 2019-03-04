@@ -8,7 +8,7 @@ RUN npm i
 COPY . /app/
 VOLUME /app/storage
 
-EXPOSE 80
+EXPOSE 8000
 
 ENV NODE_ENV=production
 
