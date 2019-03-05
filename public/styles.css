@@ -115,6 +115,9 @@ a:hover {
 
 .logo-container {
   width:20%;
+  background-image:url(wtfix.png);
+  background-size:contain;
+  background-repeat:no-repeat;
 }
 
 .logo-container img {
