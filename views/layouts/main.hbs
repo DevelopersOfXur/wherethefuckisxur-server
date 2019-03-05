@@ -32,9 +32,28 @@
 <body>
   <div class="content">
     <header>
-      <div class="top-header"
-        <a href="/"><div class="logo"></div></a>
+      <div class="top-header">
+        <div class="logo-container"><a href="/"><img src="wtfix.png"></a></div>
+        <div class="xur-location">
+            <h1 class="page-title box-title">{{xur}}</h1>
+            <h2 class="page-subtitle box-subtitle">{{msg.xurmsg}}</h2>
+            {{!-- <p class="last-updated">Updated Tuesday, 12/18</p> --}}
+            {{#if xurloc}}
+            {{/if}}
+        </div>
+        <div class="psa">
+            <h2 class="line-header">Hey Shithead, look a PSA!</h2>
+            <p>{{msg.psa}}</p>
+        </div>
+        <div class="social-icons-box">
+            <ul>
+              <li><a href=""><img src="/images/discord.png"></a></li>
+              <li><a href=""><img src="/images/phone.png"></a></li>
+              <li><a href=""><img src="/images/myspace.png"></a></li>
+            </ul>
+        </div>
       </div>
+
       <nav>
         <ul class="main-menu">
           <li><a href="/">Home</a></li>
