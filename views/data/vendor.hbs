@@ -1,11 +1,6 @@
 {{!< data}}
 <div class="vendor-info">
-    <h1 class="page-title">
-        {{display.name}}
-    </h1>
-    <h3 class="vendor-desc">
-        {{desc}}
-    </h3>
+    
     <div class="vendor-dropdown">
         {{#each vendors}}
         <a class="vendor-option" href="/data/vendor/{{hash}}">
@@ -13,6 +8,12 @@
         </a>
         {{/each}}
     </div>
+    <h1 class="box-title">
+        {{display.name}}
+    </h1>
+    <h2 class="box-subtitle">
+        {{desc}}
+    </h2>
 </div>
 <div class="vendor-sales">
     {{#each categories}}

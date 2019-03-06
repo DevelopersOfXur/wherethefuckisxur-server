@@ -316,6 +316,9 @@ h3, h2, h1 {
   font-size: 1.8em;
   text-transform:uppercase;
   margin: 0px;
+  text-align:center;
+  margin-bottom:10px;
+  line-height:1em;
 }
 
 .box-subtitle {
@@ -326,11 +329,17 @@ h3, h2, h1 {
   line-height:1em;
 }
 
+.sub-heading {
+  font-size: 1em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
 .white-box {
   border:1px solid var(--border-color);
   padding:20px;
   background:var(--block-background-color);
-  text-align:center;
+  
   margin: 0 0 30px;
 }
 
@@ -351,7 +360,28 @@ h3, h2, h1 {
   font-weight:600;
   font-size:1.2em;
   color: var(--special-text-color);
-  text-align: left;
+  /*text-align: left;*/
+}
+
+.white-box p {
+  margin-top:0px;
+}
+
+.white-box a {
+  text-transform:uppercase;
+  font-weight:600;
+  padding-top:5px;
+  text-align:center;
+}
+
+.white-box a::before {
+  content:'>> ';
+  font-weight:400;
+}
+
+.white-box a::after{
+  content:' <<';
+  font-weight:400;
 }
 
 .grey-box {
@@ -680,6 +710,10 @@ div.data-container {
   display: block;
   text-align: left;
   padding-bottom: 10px;
+}
+
+.vendor-info {
+  margin-bottom:30px;
 }
 
 .vendor-plugs {

@@ -2,31 +2,32 @@
 
 <div class="data-box-container">
     <div class="white-box data-box">
-        <h2>Ascendant Challenge</h2>
-        <p><h3 class="flavor-text">{{ascendantchallenge.name}}</h3></p>
+        <h2 class="box-title">Ascendant Challenge</h2>
+        <p class="item">{{ascendantchallenge.name}}</p>
+        <p>location > information > should go here?</p>
         <a href="/data/guides/ascendantchallenge#ac{{ascendantchallenge.id}}">Guide</a>
     </div>
 
     <div class="white-box data-box">
-        <h2>Escalation Protocol</h2>
-        <p>Boss:</p>
-        <p><h3 class="flavor-text">{{escalationprotocol.boss}}</h3></p>
-        <p>Gun:</p>
-        <p><h3 class="flavor-text">{{escalationprotocol.gun}}</h3></p>
+        <h2 class="box-title">Escalation Protocol</h2>
+        <p class="item">Boss:</p>
+        <p>{{escalationprotocol.boss}}</p>
+        <p class="item">Gun:</p>
+        <p>{{escalationprotocol.gun}}</p>
         <a href="/data/guides/escalationprotocol#ep{{escalationprotocol.id}}">Guide</a>
     </div>
 
     <div class="white-box data-box">
-        <h2>The Dreaming City</h2>
-        <p>Curse Level:</p>
-        <p class="flavor-text"><h3>{{citystatus.status}}</h3></p>
-        <p>Blind Well Boss</p>
-        <p class="flavor-text"><h3>{{citystatus.boss}}</h3></p>
+        <h2 class="box-title">The Dreaming City</h2>
+        <p class="item">Curse Level:</p>
+        <p>{{citystatus.status}}</p>
+        <p class="item">Blind Well Boss</p>
+        <p>{{citystatus.boss}}</p>
         <a href="/data/guides/blindwell#bw{{citystatus.id}}">Boss Guide</a>
     </div>
 
     <div class="white-box data-box">
-        <h2>Dailies</h2>
+        <h2 class="box-title">Dailies</h2>
         <p class="flavor-text"></p>
         <ul id="dailies">
             <li class="dailies-today item">{{dailies.current}}</li>
@@ -38,7 +39,7 @@
     </div>
 
     <div class="white-box data-box">
-        <h2>Active Nightfalls</h2>
+        <h2 class="box-title">Active Nightfalls</h2>
         <p class="flavor-text"></p>
         <ul id="nightfalls">
             {{#each activenightfalls}}
