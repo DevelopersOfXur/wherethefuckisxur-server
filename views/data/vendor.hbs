@@ -2,21 +2,21 @@
 <div class="vendor-info">
     
     <div class="vendor-dropdown">
-        {{#each vendors}}
+        {{#each page.vendors}}
         <a class="vendor-option" href="/data/vendor/{{hash}}">
             {{name}}
         </a>
         {{/each}}
     </div>
     <h1 class="box-title">
-        {{display.name}}
+        {{page.display.name}}
     </h1>
     <h2 class="box-subtitle">
-        {{desc}}
+        {{page.desc}}
     </h2>
 </div>
 <div class="vendor-sales">
-    {{#each categories}}
+    {{#each page.categories}}
     {{> vendorcat}}
     {{/each}}
 </div>

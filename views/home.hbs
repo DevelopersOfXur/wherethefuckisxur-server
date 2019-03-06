@@ -1,10 +1,10 @@
 <div class="home-xur">
     
-    {{#if vendors.xur}}
+    {{#if page.vendors.xur}}
     <div class="white-box home-xur-box xur-inventory">
         <h1 class="box-title">Xûr's Inventory</h1>
         <div class="vendor-sales">
-            {{#each vendors.xur.items}}
+            {{#each page.vendors.xur.items}}
             <div class="vendor-item">
                 {{> vendoritem}}
                 <hr>
@@ -19,9 +19,9 @@
     <div class="home-data white-box">
         <h2 class="box-title">Dailies</h2>
         <ul id="dailies">
-            <li class="dailies-today item">{{cycles.dailies.current}}</li>
+            <li class="dailies-today item">{{page.cycles.dailies.current}}</li>
             <li class="dailies-and-then">And then...</li>
-            {{#each cycles.dailies.next}}
+            {{#each page.cycles.dailies.next}}
             <li class="dailies-future sub-item">{{this}}</li>
             {{/each}}
         </ul>
@@ -30,7 +30,7 @@
     <div class="home-data white-box">
         <h3 class="box-title">Nightfalls</h3>
         <ul id="nightfalls">
-            {{#each cycles.activenightfalls}}
+            {{#each page.cycles.activenightfalls}}
             <li class="item">
                 <p>{{this}}</p>
             </li>
@@ -42,7 +42,7 @@
         <h2 class="box-title"><a href="/data/vendor/863940356">The Spider</a></h2>
         <h4 class="box-subtitle">Big Fat Fallen</h4>
         <ul id="spiderinv" class="home-spiderinv">
-            {{#each vendors.spider.items}}
+            {{#each page.vendors.spider.items}}
             <li class="home-spiderinv-item">
                 <span class="item">{{noPurchase display.name}}</span><br />
                 {{#each costs}}
@@ -57,7 +57,7 @@
         <h2 class="box-title"><a href="/data/vendor/2917531897">Ada-1</a></h2>
         <h4 class="box-subtitle">Robo got ya weapons</h4>
         <ul id="spiderinv">
-            {{#each vendors.ada.items}}
+            {{#each page.vendors.ada.items}}
             <li>
                 <span class="item">{{display.name}}</span><br />
             </li>
@@ -69,7 +69,7 @@
         <h2 class="box-title"><a href="/data/vendor/672118013">Banshee-44</a></h2>
         <h4 class="box-subtitle">Who are you</h4>
         <ul id="spiderinv">
-            {{#each vendors.banshee.items}}
+            {{#each page.vendors.banshee.items}}
             <li>
                 <span class="item">{{display.name}}</span><br />
             </li>
@@ -81,7 +81,7 @@
 <div class="home-riff-container">
     <div class="grey-box home-riff">
         <h2 class="line-header">Thought of the Day</h2>
-        <p>{{msg.riff}}</p>
+        <p>{{page.riff}}</p>
     </div>
 
     <div class="grey-box home-riff whats-new">
