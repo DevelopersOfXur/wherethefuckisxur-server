@@ -115,9 +115,6 @@ a:hover {
 
 .logo-container {
   width:20%;
-  background-image:url(wtfix.png);
-  background-size:contain;
-  background-repeat:no-repeat;
 }
 
 .logo-container img {
@@ -153,8 +150,8 @@ a:hover {
   border:1px solid var(--border-color);
   background:#fff; 
   padding:5px;
-  width: 30px;
-  margin-top:10px;
+  width: 25px;
+  margin-top:15px;
 }
 
 .social-icons-box img:hover {
