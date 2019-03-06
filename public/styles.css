@@ -384,12 +384,12 @@ h3, h2, h1 {
   font-weight:400;
 }
 
-.grey-box {
+/*.grey-box {
   border: 2px dashed var(--main-text-color);
   padding: 20px;
   margin-bottom: 25px;
   text-align:center;
-}
+}*/
 
 .item-perk {
   text-transform:none;
@@ -435,8 +435,6 @@ h3, h2, h1 {
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: stretch;
-  padding-bottom: 40px;
-  border-bottom: 1px solid var(--border-color);
 }
 
 .psa {
@@ -452,7 +450,7 @@ h3, h2, h1 {
   width: 175px;
   display: inline-block;
   vertical-align: top;
-  height: 325px;
+  /*height: 325px;*/
   white-space: normal;
   margin: 0 5px 25px 5px;
 }
@@ -473,7 +471,7 @@ h3, h2, h1 {
 }
 
 .home-riff-container {
-  margin: 50px 0 0 0;
+  margin: 30px 0 0 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -481,12 +479,13 @@ h3, h2, h1 {
 }
 
 .home-riff {
-  width: 300px;
+  width: 30%;
   margin: 0 5px 25px 5px;
+  text-align:left;
 }
 
 .home-riff.wide {
-  width: 500px;
+  width: 45%;
 }
 
 .whats-new {
