@@ -23,6 +23,7 @@ hbs.registerHelper('noCaps', (text, opts) => {
 })
 
 let data = {};
+let layout = {};
 let vendorData;
 let vendorDataAPI;
 let cyclesAPI;
@@ -57,9 +58,6 @@ updateVendorData();
 updateXurData();
 updateMsgData();
 
-console.log(data);
-// console.log(data.vendors.xur);
-
 fs.watchFile(dataDir + '/cycles.json', updateCycleData);
 fs.watchFile(dataDir + '/vendor.json', updateVendorData);
 fs.watchFile(dataDir + '/xur.json', updateXurData);
@@ -75,7 +73,10 @@ app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 
 app.get('/', (req, res) => {
-    res.render('home', data);
+    res.render('home', {
+        page: data,
+        layoutdata: layout
+    });
 })
 
 app.get('/index', (req, res) => {
@@ -96,55 +97,70 @@ app.get('/data/vendor', (req, res) => {
 
 app.get('/data/vendor/:vendorhash', (req, res) => {
     if (req.params.vendorhash in vendorData) {
-        res.render('data/vendor', vendorData[req.params.vendorhash]);
+        res.render('data/vendor', {
+            page: vendorData[req.params.vendorhash],
+            layoutdata: layout
+        });
     } else {
         res.redirect('/data/vendor')
     }
 })
 
 app.get('/data/currentcycles', (req, res) => {
-    res.render('data/currentcycles', cyclesAPI);
+    res.render('data/currentcycles', {
+        page: cyclesAPI,
+        layoutdata: layout
+    });
 })
 
 app.get('/guides/', (req, res) => {
-    res.render('guides/welcome');
+    res.render('guides/welcome', {layoutdata: layout});
 })
 
 app.get('/guides/escalationprotocol', (req, res) => {
-    res.render('guides/escalationprotocol', cyclesAPI.escalationprotocol);
+    res.render('guides/escalationprotocol', {
+        page: cyclesAPI.escalationprotocol,
+        layoutdata: layout
+    });
 })
 
 app.get('/guides/blindwell', (req, res) => {
     console.log(cyclesAPI.citystatus);
-    res.render('guides/blindwell', cyclesAPI.citystatus);
+    res.render('guides/blindwell', {
+        page: cyclesAPI.citystatus,
+        layoutdata: layout
+    });
 })
 
 app.get('/guides/ascendantchallenge', (req, res) => {
-    res.render('guides/ascendantchallenge', cyclesAPI.ascendantchallenge);
+    res.render('guides/ascendantchallenge', {
+        page: cyclesAPI.ascendantchallenge,
+        layoutdata: layout
+    });
 })
 
 app.get('/guides/dawning', (req, res) => {
-    res.render('guides/dawning');
+    res.render('guides/dawning', {layoutdata: layout});
 })
 
 app.get('/guides/spider', (req, res) => {
-    res.render('guides/spider');
+    res.render('guides/spider', {layoutdata: layout});
 })
 
 app.get('/accessibility', (req, res) => {
-    res.render('accessibility');
+    res.render('accessibility', {layoutdata: layout});
 })
 
 app.get('/archives', (req, res) => {
-    res.render('archives');
+    res.render('archives', {layoutdata: layout});
 })
 
 app.get('/faq', (req, res) => {
-    res.render('faq');
+    res.render('faq', {layoutdata: layout});
 })
 
 app.get('/privacy-policy', (req, res) => {
-    res.render('privacy-policy');
+    res.render('privacy-policy', {layoutdata: layout});
 })
 
 app.get('/xur', (req, res) => {
@@ -218,30 +234,30 @@ function updateXurData() {
 
     if (xurAPI.present) {
         if (xurAPI.found) {
-            data.xurloc = xurAPI.planet;
-            data.xur = xurAPI.planet + ' > ' + xurAPI.zone + ' > ';
+            //data.xurloc = xurAPI.planet;
+            layout.xur = xurAPI.planet + ' > ' + xurAPI.zone + ' > ';
             switch (xurAPI.planet) {
                 case 'Tower':
-                    data.xur += 'Behind Dead Orbit';
+                    layout.xur += 'Behind Dead Orbit';
                     break;
                 case 'Titan':
-                    data.xur += 'In a room';
+                    layout.xur += 'In a room';
                     break;
                 case 'Io':
-                    data.xur += 'In his cave';
+                    layout.xur += 'In his cave';
                     break;
                 case 'Nessus':
-                    data.xur += 'In his tree';
+                    layout.xur += 'In his tree';
                     break;
                 case 'Earth':
-                    data.xur += 'On his cliff';
+                    layout.xur += 'On his cliff';
                     break;
             }
         } else {
-            data.xur = 'Xur\'s here, but we haven\'t found him yet';
+            layout.xur = 'Xur\'s here, but we haven\'t found him yet';
         }
     } else {
-        data.xur = 'Xur\'s fucked off';
+        layout.xur = 'Xur\'s fucked off';
     }
 }
 
@@ -249,6 +265,8 @@ function updateMsgData() {
     let msgFile = fs.readFileSync(dataDir + '/msg.json', 'utf8');
     msgData = JSON.parse(msgFile);
 
-    data.msg = msgData;
-    data.psa
+    layout.xurmsg = msgData.xurmsg;
+    layout.psa = msgData.psa;
+
+    data.riff = msgData.riff;
 }

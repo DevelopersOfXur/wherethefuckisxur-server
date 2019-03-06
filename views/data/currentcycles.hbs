@@ -3,36 +3,36 @@
 <div class="data-box-container">
     <div class="white-box data-box">
         <h2 class="box-title">Ascendant Challenge</h2>
-        <p class="item">{{ascendantchallenge.name}}</p>
+        <p class="item">{{page.ascendantchallenge.name}}</p>
         <p>location > information > goes here?</p>
-        <a href="/data/guides/ascendantchallenge#ac{{ascendantchallenge.id}}">Guide</a>
+        <a href="/data/guides/ascendantchallenge#ac{{page.ascendantchallenge.id}}">Guide</a>
     </div>
 
     <div class="white-box data-box">
         <h2 class="box-title">Escalation Protocol</h2>
         <p class="item">Boss:</p>
-        <p>{{escalationprotocol.boss}}</p>
+        <p>{{page.escalationprotocol.boss}}</p>
         <p class="item">Gun:</p>
-        <p>{{escalationprotocol.gun}}</p>
-        <a href="/data/guides/escalationprotocol#ep{{escalationprotocol.id}}">Guide</a>
+        <p>{{page.escalationprotocol.gun}}</p>
+        <a href="/data/guides/escalationprotocol#ep{{page.escalationprotocol.id}}">Guide</a>
     </div>
 
     <div class="white-box data-box">
         <h2 class="box-title">The Dreaming City</h2>
         <p class="item">Curse Level:</p>
-        <p>{{citystatus.status}}</p>
+        <p>{{page.citystatus.status}}</p>
         <p class="item">Blind Well Boss</p>
-        <p>{{citystatus.boss}}</p>
-        <a href="/data/guides/blindwell#bw{{citystatus.id}}">Boss Guide</a>
+        <p>{{page.citystatus.boss}}</p>
+        <a href="/data/guides/blindwell#bw{{page.citystatus.id}}">Boss Guide</a>
     </div>
 
     <div class="white-box data-box">
         <h2 class="box-title">Dailies</h2>
         <p class="flavor-text"></p>
         <ul id="dailies">
-            <li class="dailies-today item">{{dailies.current}}</li>
+            <li class="dailies-today item">{{page.dailies.current}}</li>
             <li class="dailies-and-then">And then...</li>
-            {{#each dailies.next}}
+            {{#each page.dailies.next}}
             <li class="dailies-future sub-item">{{this}}</li>
             {{/each}}
         </ul>
@@ -42,7 +42,7 @@
         <h2 class="box-title">Active Nightfalls</h2>
         <p class="flavor-text"></p>
         <ul id="nightfalls">
-            {{#each activenightfalls}}
+            {{#each page.activenightfalls}}
             <li class="nightfall item">{{this}}</li>
             {{/each}}
         </ul>
