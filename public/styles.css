@@ -347,7 +347,7 @@ h3, h2, h1 {
 }
 
 .white-box li {
-  margin-bottom:10px;
+  margin-bottom:10px!important;
 }
 
 .white-box ul {
@@ -375,6 +375,7 @@ h3, h2, h1 {
   font-weight:600;
   padding-top:5px;
   text-align:center;
+  
 }
 
 .white-box .guide-link::before {
