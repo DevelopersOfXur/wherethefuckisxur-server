@@ -6,8 +6,8 @@
         <div class="vendor-sales">
             {{#each page.vendors.xur.items}}
             <div class="vendor-item">
+                <img class="xur-engram" src="images/engram.png" width="25px;">
                 {{> vendoritem}}
-                <hr>
             </div>
             {{/each}}
         </div>
@@ -27,15 +27,28 @@
         </ul>
     </div>
 
-    <div class="home-data white-box">
-        <h3 class="box-title">Nightfalls</h3>
-        <ul id="nightfalls">
-            {{#each page.cycles.activenightfalls}}
-            <li class="item">
-                {{this}}
-            </li>
-            {{/each}}
-        </ul>
+    <div class="home-data">
+        <div class="white-box">
+            <h3 class="box-title">Nightfalls</h3>
+            <ul id="nightfalls">
+                {{#each page.cycles.activenightfalls}}
+                <li class="item">
+                    {{this}}
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class=" white-box">
+            <h2 class="box-title">Banshee-44</h2>
+            <h4 class="box-subtitle">Who are you</h4>
+            <ul id="spiderinv">
+                {{#each page.vendors.banshee.items}}
+                <li>
+                    <span class="item">{{display.name}}</span><br />
+                </li>
+                {{/each}}
+            </ul>
+        </div>
     </div>
 
     <div class="home-data spider white-box">
@@ -58,7 +71,7 @@
     <div class="home-data white-box">
         <h2 class="box-title">Ada-1</h2>
         <h4 class="box-subtitle">Robo got ya weapons</h4>
-        <ul id="spiderinv">
+        <ul class="adainv">
             {{#each page.vendors.ada.items}}
             <li>
                 <span class="item">{{display.name}}</span><br />
@@ -68,7 +81,7 @@
         <a class="guide-link" href="/data/vendor/2917531897">More From Ada</a>
     </div>
 
-    <div class="home-data white-box">
+    <!--<div class="home-data white-box">
         <h2 class="box-title">Banshee-44</h2>
         <h4 class="box-subtitle">Who are you</h4>
         <ul id="spiderinv">
@@ -78,16 +91,16 @@
             </li>
             {{/each}}
         </ul>
-    </div>
+    </div>-->
 </div>
 
 <div class="home-riff-container">
-    <div class="grey-box home-riff">
+    <div class="grey-box home-riff wide">
         <h2 class="line-header">Thought of the Day</h2>
         <p>{{page.riff}}</p>
     </div>
 
-    <div class="grey-box home-riff whats-new">
+    <div class="grey-box home-riff whats-new wide">
         <h2 class="line-header">What The Fuck is New?</h2>
         <p>
             <ul>
@@ -98,7 +111,7 @@
         </p>
     </div>
 
-    <div class="grey-box home-riff">
+    <!-- <div class="grey-box home-riff">
         <h2 class="line-header">Friendgame</h2>
         <p>
             <h2><a href="https://discord.gg/Ut4qTZp">Kitties of Xûr</a></h2>
@@ -106,7 +119,7 @@
         <p>Official WTFIX Development Discord</p>
         <h2><a href="https://solarian.net">Solarian Clan</a></h2>
         <p>Official clan of WTFIX</p>
-    </div>
+    </div> -->
 
     <div class="grey-box home-riff wide">
         <h1 class="line-header">Xûr Hotline</h1>
