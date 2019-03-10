@@ -163,8 +163,8 @@ app.get('/privacy-policy', (req, res) => {
     res.render('privacy-policy', {layoutdata: layout});
 })
 
-app.get('/xur', (req, res) => {
-    res.redirect('/api/xur');
+app.get('/friends', (req, res) => {
+    res.render('friends', {layoutdata: layout});
 })
 
 app.get('/api/vendor', (req, res) => {
