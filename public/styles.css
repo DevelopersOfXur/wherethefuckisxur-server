@@ -417,20 +417,25 @@ h3, h2, h1 {
 /* * * * * HOMEPAGE * * * * * */
 
 .home-xur {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: stretch;
   margin: 20px 0 10px 0;
+  display: flex;
+  align-items: flex-start;
 }
 
-.home-xur-box {
-  width: 500px;
-  margin-bottom: 25px;
+.xur-map {
+  flex: 2;
+  width: 100%;
+  box-sizing: border-box;
+  margin-right: 50px;
+}
+
+#map {
+  width:100%;
+  margin: 25px auto;
 }
 
 .xur-inventory {
-  width:100%;
+  flex: 3
 }
 
 .home-data-container {
@@ -459,11 +464,6 @@ h3, h2, h1 {
 
 .psa {
   margin-top: 25px;
-}
-
-#map {
-  width:80%;
-  margin: 25px auto;
 }
 
 /*.home-data {
@@ -532,17 +532,10 @@ h3, h2, h1 {
 
 /* * * * * XUR STYLES * * * * */
 
-.vendor-sales {
-  display:flex;
-  flex-direction:row;
-  justify-content:center;
-}
-
 .xur-inventory .vendor-item {
-  border-right:2px solid var(--line-border-color);
   margin-bottom:10px;
   text-align:center;
-  width:23%;
+  width:100%;
   /*display:inline-block;*/
 }
 
@@ -920,16 +913,16 @@ div.data-container {
   line-height:1em;
 }
 
+.home-xur {
+  flex-direction: column;
+}
+
 .xur-inventory .vendor-item {
   border-bottom:2px solid var(--line-border-color);
   margin-bottom:10px;
   text-align:center;
   width:100%;
   border-right:0px;
-}
-
-.vendor-sales {
-  display:initial;
 }
 
 .home-data-container {

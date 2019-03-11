@@ -235,7 +235,7 @@ function updateXurData() {
 
     if (xurAPI.present) {
         if (xurAPI.found) {
-            //data.xurloc = xurAPI.planet;
+            data.xurloc = xurAPI.planet;
             layout.xur = xurAPI.planet + ' > ' + xurAPI.zone + ' > ';
             switch (xurAPI.planet) {
                 case 'Tower':
