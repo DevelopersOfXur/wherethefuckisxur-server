@@ -864,16 +864,6 @@ div.data-container {
   align-items: stretch;
 }
 
-/*.home-data-container {
-  overflow-x: auto;
-  overflow-y: auto;
-  white-space: nowrap;
-  height: 400px;
-  margin: 0 -30px;
-  padding: 0 30px;
-  display: block;
-}*/
-
 .home-riff {
   width: 100%;
   margin: 0 5px 25px 5px;
@@ -944,7 +934,12 @@ div.data-container {
 
 .home-data-container {
   width:100%;
-  display: initial;
+  display: block;
+}
+
+.home-data {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .home-riff.wide {
