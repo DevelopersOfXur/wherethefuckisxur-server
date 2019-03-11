@@ -441,6 +441,22 @@ h3, h2, h1 {
   align-items: stretch;
 }
 
+.home-data {
+  width: 225px;
+}
+
+.double-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.double {
+  height: 200px;
+}
+
 .psa {
   margin-top: 25px;
 }

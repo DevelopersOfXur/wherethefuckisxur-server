@@ -12,8 +12,9 @@ process.argv.forEach((val, index, arr) => {
     }
 })
 
-hbs.registerHelper('noPurchase', (text, opts) => {
-    let newText = text.replace(/purchase /ig, '');
+hbs.registerHelper('filter', (text, opts) => {
+    let reg = new RegExp(opts, 'ig');
+    let newText = text.replace(reg, '');
     return newText
 })
 

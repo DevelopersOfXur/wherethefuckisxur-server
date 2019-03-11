@@ -27,8 +27,8 @@
         </ul>
     </div>
 
-    <div class="home-data">
-        <div class="white-box">
+    <div class="home-data double-container">
+        <div class="white-box double">
             <h3 class="box-title">Nightfalls</h3>
             <ul id="nightfalls">
                 {{#each page.cycles.activenightfalls}}
@@ -38,7 +38,7 @@
                 {{/each}}
             </ul>
         </div>
-        <div class=" white-box">
+        <div class="white-box double">
             <h2 class="box-title">Banshee-44</h2>
             <h4 class="box-subtitle">Who are you</h4>
             <ul id="spiderinv">
@@ -57,7 +57,7 @@
         <ul id="spiderinv" class="home-spiderinv">
             {{#each page.vendors.spider.items}}
             <li class="home-spiderinv-item">
-                <span class="item">{{noPurchase display.name}}</span><br />
+                <span class="item">{{filter display.name "Purchase"}}</span><br />
                 {{#each costs}}
                 <span class="item-description">{{amount}} {{display.name}}</span>
                 {{/each}}
@@ -74,7 +74,7 @@
         <ul class="adainv">
             {{#each page.vendors.ada.items}}
             <li>
-                <span class="item">{{display.name}}</span><br />
+                <span class="item">{{filter display.name "Powerful"}}</span><br />
             </li>
             {{/each}}
         </ul>
