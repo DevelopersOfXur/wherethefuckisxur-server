@@ -19,7 +19,12 @@ hbs.registerHelper('filter', (text, opts) => {
 })
 
 hbs.registerHelper('noCaps', (text, opts) => {
-    let newText = text.toLowerCase();
+    let newText = text;
+    if (text) {
+        newText = text.toLowerCase();
+    } else {
+        console.log('ERROR: No text provided to the noCaps helper!');
+    }
     return newText;
 })
 
