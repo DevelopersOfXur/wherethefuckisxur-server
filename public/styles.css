@@ -690,6 +690,11 @@ div.data-container {
 
 /* new data screen */
 
+.friends-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .flex {
   display: flex;
   align-items: flex-start;
