@@ -6,11 +6,16 @@ var app = express();
 
 var dataDir = 'storage';
 
-process.argv.forEach((val, index, arr) => {
-    if (val == '--test-data') {
-        dataDir = 'test-data';
+// Command line arguments.
+for(let i = 0; i < process.argv.length; i++) {
+    if(process.argv[i] == '--data') {
+        dataDir = process.argv[i+1];
+        ++i;
+        if(!fs.existsSync(dataDir)) {
+            throw 'Invalid data location.';
+        }
     }
-})
+}
 
 hbs.registerHelper('filter', (text, opts) => {
     let reg = new RegExp(opts, 'ig');
