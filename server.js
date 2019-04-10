@@ -158,6 +158,22 @@ app.get('/guides/spider', (req, res) => {
     res.render('guides/spider', {layoutdata: layout});
 })
 
+app.get('/docs/', (req, res) => {
+    res.render('docs/welcome', {layoutdata: layout});
+})
+
+app.get('/docs/xur', (req, res) => {
+    res.render('docs/xur', {layoutdata: layout});
+})
+
+app.get('/docs/cycles', (req, res) => {
+    res.render('docs/cycles', {layoutdata: layout});
+})
+
+app.get('/docs/vendor', (req, res) => {
+    res.render('docs/vendor', {layoutdata: layout});
+})
+
 app.get('/accessibility', (req, res) => {
     res.render('accessibility', {layoutdata: layout});
 })
