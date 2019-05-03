@@ -80,11 +80,16 @@
     </div>
 
     <div class="home-data white-box">
-        <h2 class="box-title">Dreaming City Curse Level</h2>
-        <h4 class="box-subtitle">How fucked is this shit?</h4>
-        <h4 class="citystatus">
-            {{page.cycles.city}}
-        </h4>
+        <h2 class="box-title">Ada-1</h2>
+        <h4 class="box-subtitle">Robo got ya weapons</h4>
+        <ul class="adainv">
+            {{#each page.vendors.ada.items}}
+            <li>
+                <span class="item">{{filter display.name "Powerful"}}</span><br />
+            </li>
+            {{/each}}
+        </ul>
+        <a class="guide-link" href="/data/vendor/2917531897">More From Ada</a>
     </div>
 
     <!--<div class="home-data white-box">

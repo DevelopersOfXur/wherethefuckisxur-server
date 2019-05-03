@@ -216,19 +216,9 @@ function updateCycleData() {
     let cyclesFile = fs.readFileSync(dataDir + '/cycles.json', 'utf8');
     cyclesAPI = JSON.parse(cyclesFile);
 
-    let cityStatus;
-    if (cyclesAPI.citystatus.id == 0) {
-        cityStatus = "Shit ain't fucked, yo";
-    } else if (cyclesAPI.citystatus.id == 1) {
-        cityStatus = "Shit is moderately fucked, yo";
-    } else {
-        cityStatus = "Shit is completely fucked, yo";
-    }
-
     data.cycles = {
         activenightfalls: cyclesAPI.activenightfalls,
-        dailies: cyclesAPI.dailies,
-        city: cityStatus
+        dailies: cyclesAPI.dailies
     }
 }
 
