@@ -92,7 +92,7 @@ let themes = {
 }
 
 function updateColors(themeName) {
-    document.cookie = 'theme=' + themeName;
+    document.cookie = 'theme=' + themeName + '; path=/';
     document.getElementById('current-shader').src = document.getElementById(themeName).src;
     let theme = themes[themeName];
     document.body.style.setProperty('--main-text-color', theme.mainTextColor);
@@ -135,3 +135,5 @@ for (let i = 0; i < shaders.length; i++) {
         updateColors(shader.id);
     })
 }
+
+console.log(document.cookie);
