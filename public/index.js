@@ -93,7 +93,10 @@ let themes = {
 
 function updateColors(themeName) {
     document.cookie = 'theme=' + themeName + '; path=/';
-    document.getElementById('current-shader').src = document.getElementById(themeName).src;
+    let shaderIcon = document.getElementById('current-shader')
+    if (shaderIcon){
+        shaderIcon.src = document.getElementById(themeName).src;
+    }
     let theme = themes[themeName];
     document.body.style.setProperty('--main-text-color', theme.mainTextColor);
     document.body.style.setProperty('--menu-text-color', theme.menuTextColor);
@@ -129,11 +132,13 @@ if (!themeCookie || themeCookie == '' || !(themeCookie in themes)) {
 }
 
 let shaders = document.getElementsByClassName('shader-icon');
-for (let i = 0; i < shaders.length; i++) {
-    let shader = shaders[i];
-    shader.addEventListener('click', event => {
-        updateColors(shader.id);
-    })
+if (shaders) {
+    for (let i = 0; i < shaders.length; i++) {
+        let shader = shaders[i];
+        shader.addEventListener('click', event => {
+            updateColors(shader.id);
+        })
+    }
 }
 
 function hideNav() {

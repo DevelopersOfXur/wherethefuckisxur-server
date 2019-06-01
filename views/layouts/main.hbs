@@ -57,29 +57,14 @@
     </header>
 
     <div class="main-menu">
-      <img class="hamburger" src="/images/baseline-menu-24px.svg" onclick="showNav()" />
+      <svg class="hamburger" onclick="showNav()" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" /></svg>
       <div class="main-menu-links">
         <a href="/" class="home">Home</a>
         <a href="/data">Data</a>
         <a href="/guides">Guides</a>
       </div>
-      {{!-- <li><a href="/friends">Friends</a></li>
-          <li><a href="https://discord.gg/Ut4qTZp">Discord</a></li>
-          <li><a href="tel:1-414-436-9013">Hotline</a></li> --}}
-
-      {{!-- <div class="shader">
-        <div class="shader-hover">
-          <img class="main-shader-icon" id="current-shader" />
-        </div>
-        <div class="shader-menu">
-          <img class="shader-icon" id="shader-default" src="/images/no-shader.jpg" />
-          <img class="shader-icon" id="shader-dark" src="/images/dark-shader.jpg" />
-          <img class="shader-icon" id="conversation-hearts" src="/images/conversation-heart-shader.png" />
-          <img class="shader-icon" id="crimson-days" src="/images/crimson-shader.jpg" />
-          <!-- <img class="shader-icon" id="shader-christmas" src="images/christmas-shader.jpg"/> -->
-        </div>
-      </div> --}}
-      <!--<li><a href="faq.html">FAQ</a></li>-->
     </div>
 
     <div id="nav-menu-back" onclick="hideNav()">

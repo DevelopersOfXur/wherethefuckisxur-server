@@ -203,6 +203,11 @@ a:hover {
 
 .hamburger {
   margin: 0 15px;
+  fill: var(--menu-text-color);
+}
+
+.hamburger:hover {
+  fill: var(--link-text-color);
 }
 
 #nav-menu-back {
@@ -263,21 +268,21 @@ a:hover {
 /* * * * * SHADER STYLES * * * * */
 
 .shader {
-  right:45px;
-  padding:0 0 13px;
-  float: right;
-  position: relative;
   display: inline-block;
+  width: 55px;
+  height: 55px;
+  border: 1px solid var(--border-color);
+  background: var(--block-background-color);
 }
 
 .main-shader-icon {
-  border: 1px solid var(--border-color);
-  width: 22px;
-  height: 22px;
+  display: block;
+  width: 35px;
+  height: 35px;
+  margin: 10px;
 }
 
 .shader-icon {
-  border: 1px solid var(--border-color);
   display: block;
   width: 35px;
   height: 35px;
@@ -287,9 +292,7 @@ a:hover {
 .shader-menu {
   display: none;
   position: absolute;
-  min-width: 60px;
-  right: 0px;
-  margin-top:7px;
+  min-width: 55px;
   z-index: 1;
   background: var(--block-background-color);
   /*box-shadow: 0 0 5px 0px black;*/
@@ -875,10 +878,6 @@ div.data-container {
   height:200px;
   display: block;
   margin-bottom:10px;
-}
-
-.shader {
-  right:15px;
 }
 
 .side-menu a {
