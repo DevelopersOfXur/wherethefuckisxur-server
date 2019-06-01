@@ -440,12 +440,7 @@ h3, h2, h1 {
 }
 
 .white-box .guide-link::before {
-  content:'>> ';
-  font-weight:400;
-}
-
-.white-box .guide-link::after{
-  content:' <<';
+  content:'>>';
   font-weight:400;
 }
 
@@ -510,6 +505,7 @@ h3, h2, h1 {
 
 .home-data {
   width: 225px;
+  box-sizing: border-box;
 }
 
 .double-container {
@@ -522,6 +518,7 @@ h3, h2, h1 {
 
 .double {
   height: 200px;
+  flex: 1;
 }
 
 .psa {
@@ -566,6 +563,10 @@ h3, h2, h1 {
 
 .citystatus {
   text-align: center;
+}
+
+.discord-link {
+
 }
 
 /* * * * * ARCHIVE STYLES * * * * */

@@ -170,6 +170,10 @@ app.get('/faq', (req, res) => {
     res.render('faq', {layoutdata: layout});
 })
 
+app.get('/settings', (req, res) => {
+    res.render('settings', {layoutdata: layout});
+})
+
 app.get('/privacy-policy', (req, res) => {
     res.render('privacy-policy', {layoutdata: layout});
 })
