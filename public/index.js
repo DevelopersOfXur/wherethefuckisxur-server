@@ -136,4 +136,12 @@ for (let i = 0; i < shaders.length; i++) {
     })
 }
 
-console.log(document.cookie);
+function hideNav() {
+    document.getElementById('nav-menu-back').style.display = 'none';
+    document.getElementById('nav-menu').style.display = 'none';
+}
+
+function showNav() {
+    document.getElementById('nav-menu-back').style.display = 'block';
+    document.getElementById('nav-menu').style.display = 'block';
+}
