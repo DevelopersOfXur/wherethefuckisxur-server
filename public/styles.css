@@ -208,6 +208,7 @@ a:hover {
 
 .hamburger:hover {
   fill: var(--link-text-color);
+  cursor: pointer;
 }
 
 #nav-menu-back {
