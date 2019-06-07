@@ -272,7 +272,7 @@ function updateXurData() {
                     layout.xur += 'In his cave';
                     break;
                 case 'Nessus':
-                    layout.xur += 'In his tree';
+                    layout.xur += 'On the barge';
                     break;
                 case 'Earth':
                     layout.xur += 'On his cliff';
