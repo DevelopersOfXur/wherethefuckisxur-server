@@ -48,7 +48,7 @@ let vendorDesc = {
     '3347378076': 'Say hi to your clan mates for her', //Suraya Hawthorne
     '2917531897': 'Robo got ya weapon frames', //Ada-1
     '2398407866': 'I like to think he drops things all the time cuz he\'s wearing that blindfold', //Brother Vance
-    '1735426333': 'GIVE ME THE 14 KELVINS YOU FUCK', //Ana Bray
+    '1735426333': 'GIVE ME THE 14 KELVINS YOU FRICK', //Ana Bray
     '1576276905': 'I\'m 99% sure no computer bug could cause a robot to go between depressed and optimistic', //Failsafe
     '1265988377': 'Just sweepin\' away', //Benedict 99-40
     '1062861569': 'Do you think she ever goes swimming in those giant oceans', //Sloane
@@ -206,11 +206,11 @@ function updateCycleData() {
 
     let cityStatus;
     if (cyclesAPI.citystatus.id == 0) {
-        cityStatus = "Shit ain't fucked, yo";
+        cityStatus = "Stuff ain't fricked, yo";
     } else if (cyclesAPI.citystatus.id == 1) {
-        cityStatus = "Shit is moderately fucked, yo";
+        cityStatus = "Stuff is moderately fricked, yo";
     } else {
-        cityStatus = "Shit is completely fucked, yo";
+        cityStatus = "Stuff is completely fricked, yo";
     }
 
     data.cycles = {
@@ -282,7 +282,7 @@ function updateXurData() {
             layout.xur = 'Xur\'s here, but we haven\'t found him yet';
         }
     } else {
-        layout.xur = 'Xur\'s fucked off';
+        layout.xur = 'Xur\'s fricked off';
     }
 }
 
