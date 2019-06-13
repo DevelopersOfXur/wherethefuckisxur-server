@@ -158,6 +158,10 @@ app.get('/guides/spider', (req, res) => {
     res.render('guides/spider', {layoutdata: layout});
 })
 
+app.get('/guides/chalice', (req, res) => {
+    res.render('guides/chalice', {layoutdata: layout});
+})
+
 app.get('/accessibility', (req, res) => {
     res.render('accessibility', {layoutdata: layout});
 })
