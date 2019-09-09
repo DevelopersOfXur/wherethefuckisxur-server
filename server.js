@@ -94,6 +94,10 @@ app.get('/index', (req, res) => {
     res.redirect('/');
 })
 
+app.get('/index.html', (req, res) => {
+    res.redirect('/');
+})
+
 app.get('/home', (req, res) => {
     res.redirect('/');
 })
@@ -220,7 +224,8 @@ function updateCycleData() {
     data.cycles = {
         activenightfalls: cyclesAPI.activenightfalls,
         dailies: cyclesAPI.dailies,
-        city: cityStatus
+        city: cityStatus,
+        reckoning: cyclesAPI.reckoningbosses.boss
     }
 }
 
