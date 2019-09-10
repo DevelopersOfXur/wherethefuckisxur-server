@@ -23,12 +23,13 @@ hbs.registerHelper('filter', (text, opts) => {
     return newText
 })
 
-hbs.registerHelper('noCaps', (text, opts) => {
+hbs.registerHelper('fileFormat', (text, opts) => {
     let newText = text;
     if (text) {
         newText = text.toLowerCase();
+        newText = newText.replace(/ /g, "_");
     } else {
-        console.log('ERROR: No text provided to the noCaps helper!');
+        console.log('ERROR: No text provided to the fileFormat helper!');
     }
     return newText;
 })
