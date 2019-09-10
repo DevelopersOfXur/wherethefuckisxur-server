@@ -1,5 +1,5 @@
 const express = require('express');
-const hbs  = require('express-hbs');
+const hbs = require('express-hbs');
 const fs = require('fs');
 
 var app = express();
@@ -7,11 +7,11 @@ var app = express();
 var dataDir = 'storage';
 
 // Command line arguments.
-for(let i = 0; i < process.argv.length; i++) {
-    if(process.argv[i] == '--data') {
-        dataDir = process.argv[i+1];
+for (let i = 0; i < process.argv.length; i++) {
+    if (process.argv[i] == '--data') {
+        dataDir = process.argv[i + 1];
         ++i;
-        if(!fs.existsSync(dataDir)) {
+        if (!fs.existsSync(dataDir)) {
             throw 'Invalid data location.';
         }
     }
@@ -78,7 +78,7 @@ app.engine('hbs', hbs.express4({
     partialsDir: __dirname + '/views/partials',
     defaultLayout: __dirname + '/views/layouts/main',
     layoutsDir: __dirname + '/views/layouts'
-  }));
+}));
 
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
@@ -129,7 +129,7 @@ app.get('/data/currentcycles', (req, res) => {
 })
 
 app.get('/guides/', (req, res) => {
-    res.render('guides/welcome', {layoutdata: layout});
+    res.render('guides/welcome', { layoutdata: layout });
 })
 
 app.get('/guides/escalationprotocol', (req, res) => {
@@ -155,39 +155,39 @@ app.get('/guides/ascendantchallenge', (req, res) => {
 })
 
 app.get('/guides/dawning', (req, res) => {
-    res.render('guides/dawning', {layoutdata: layout});
+    res.render('guides/dawning', { layoutdata: layout });
 })
 
 app.get('/guides/spider', (req, res) => {
-    res.render('guides/spider', {layoutdata: layout});
+    res.render('guides/spider', { layoutdata: layout });
 })
 
 app.get('/guides/chalice', (req, res) => {
-    res.render('guides/chalice', {layoutdata: layout});
+    res.render('guides/chalice', { layoutdata: layout });
 })
 
 app.get('/accessibility', (req, res) => {
-    res.render('accessibility', {layoutdata: layout});
+    res.render('accessibility', { layoutdata: layout });
 })
 
 app.get('/archives', (req, res) => {
-    res.render('archives', {layoutdata: layout});
+    res.render('archives', { layoutdata: layout });
 })
 
 app.get('/faq', (req, res) => {
-    res.render('faq', {layoutdata: layout});
+    res.render('faq', { layoutdata: layout });
 })
 
 app.get('/settings', (req, res) => {
-    res.render('settings', {layoutdata: layout});
+    res.render('settings', { layoutdata: layout });
 })
 
 app.get('/privacy-policy', (req, res) => {
-    res.render('privacy-policy', {layoutdata: layout});
+    res.render('privacy-policy', { layoutdata: layout });
 })
 
 app.get('/friends', (req, res) => {
-    res.render('friends', {layoutdata: layout});
+    res.render('friends', { layoutdata: layout });
 })
 
 app.get('/api/vendor', (req, res) => {
@@ -285,6 +285,21 @@ function updateXurData() {
                     break;
                 case 'Earth':
                     layout.xur += 'On his cliff';
+                    break;
+                case 'Mercury':
+                    layout.xur += 'See below';
+                    break;
+                case 'Mars':
+                    layout.xur += 'See below';
+                    break;
+                case 'Tangled Shore':
+                    layout.xur += 'See below';
+                    break;
+                case 'Dreaming City':
+                    layout.xur += 'See below';
+                    break;
+                case 'Moon':
+                    layout.xur += 'See below';
                     break;
             }
         } else {
