@@ -254,10 +254,15 @@ function updateVendorData() {
         }
     }
 
-    data.vendors = {
-        banshee: vendorDataAPI['672118013'].categories[0],
-        spider: vendorDataAPI['863940356'].categories[0],
-        ada: vendorDataAPI['2917531897'].categories[0]
+    data.vendors = {};
+    if ('672118013' in vendorDataAPI) {
+        data.vendors.banshee = vendorDataAPI['672118013'].categories[0];
+    }
+    if ('863940356' in vendorDataAPI) {
+        data.vendors.spider = vendorDataAPI['863940356'].categories[0];
+    }
+    if ('2917531897' in vendorDataAPI) {
+        data.vendors.ada = vendorDataAPI['2917531897'].categories[0];
     }
     if ('2190858386' in vendorDataAPI) {
         data.vendors.xur = vendorDataAPI['2190858386'].categories[0];
