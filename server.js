@@ -266,6 +266,22 @@ function updateVendorData() {
     }
     if ('2190858386' in vendorDataAPI) {
         data.vendors.xur = vendorDataAPI['2190858386'].categories[0];
+    } else {
+        if (xurAPI.present) {
+            data.vendors.xur = {
+                items: [{
+                    display: {
+                        name: 'Looks like Xur\'s here, but Bungie\'s API is down, so we can\'t show his inventory.  Here\'s his location though, and a handy map to find him!'
+                    },
+                    sockets: [{
+                        plugs: [{
+                            name: '',
+                            description: ''
+                        }]
+                    }]
+                }]
+            }
+        }
     }
 }
 
