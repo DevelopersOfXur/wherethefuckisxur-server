@@ -66,8 +66,8 @@ let vendorDesc = {
 }
 
 updateCycleData();
-updateVendorData();
 updateXurData();
+updateVendorData();
 updateMsgData();
 
 fs.watchFile(dataDir + '/cycles.json', updateCycleData);
