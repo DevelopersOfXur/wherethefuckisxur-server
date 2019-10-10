@@ -224,6 +224,7 @@ function updateCycleData() {
 
     data.cycles = {
         activenightfalls: cyclesAPI.activenightfalls,
+        activeordeal: cyclesAPI.activeordeal,
         dailies: cyclesAPI.dailies,
         city: cityStatus,
         reckoning: cyclesAPI.reckoningbosses.boss

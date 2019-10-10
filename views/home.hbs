@@ -28,38 +28,23 @@
 
 <div class="home-data-container">
     <div class="home-data white-box">
-        <h2 class="box-title">Dailies</h2>
-        <ul id="dailies">
-            <li class="dailies-today item">{{page.cycles.dailies.current}}</li>
-            <li class="dailies-and-then">And then...</li>
-            {{#each page.cycles.dailies.next}}
-            <li class="dailies-future sub-item">{{this}}</li>
+        <h2 class="box-title">Nightfalls</h2>
+        <h4 class="box-subtitle">The Ordeal</h4>
+        <p class="item">{{page.cycles.activeordeal}}</p>
+        <h4 class="box-subtitle">Regulars</h4>
+        <ul id="nightfalls">
+            {{#each page.cycles.activenightfalls}}
+            <li class="item">
+                {{this}}
+            </li>
             {{/each}}
         </ul>
+
     </div>
 
-    <div class="home-data double-container">
-        <div class="white-box double">
-            <h3 class="box-title">Nightfalls</h3>
-            <ul id="nightfalls">
-                {{#each page.cycles.activenightfalls}}
-                <li class="item">
-                    {{this}}
-                </li>
-                {{/each}}
-            </ul>
-        </div>
-        <div class="white-box double">
-            <h2 class="box-title">Banshee-44</h2>
-            <h4 class="box-subtitle">Who are you</h4>
-            <ul id="spiderinv">
-                {{#each page.vendors.banshee.items}}
-                <li>
-                    <span class="item">{{display.name}}</span><br />
-                </li>
-                {{/each}}
-            </ul>
-        </div>
+    <div class="home-data white-box">
+        <h2 class="box-title">Temporary Empty Space</h2>
+        <h4 class="box-subtitle">Pardon our dust</h4>
     </div>
 
     <div class="home-data spider white-box">
