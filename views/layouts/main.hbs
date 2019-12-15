@@ -46,6 +46,9 @@
         <div class="logo-container"><a href="/"><img src="/images/wtfix.png"></a></div>
         <div class="xur-location">
           <h1 class="page-title box-title">{{layoutdata.xur}}</h1>
+          {{#if layoutdata.xur}}
+          <p>Xûr found in {{{layoutdata.xurtime}}} seconds</p>
+          {{/if}}
           <h2 class="page-subtitle box-subtitle">{{{layoutdata.xurmsg}}}</h2>
           {{!-- <p class="last-updated">Updated Tuesday, 12/18</p> --}}
         </div>

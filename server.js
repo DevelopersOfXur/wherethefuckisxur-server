@@ -227,7 +227,7 @@ function updateCycleData() {
         activeordeal: cyclesAPI.activeordeal,
         dailies: cyclesAPI.dailies,
         city: cityStatus,
-        reckoning: cyclesAPI.reckoningbosses.boss
+        // reckoning: cyclesAPI.reckoningbosses.boss
     }
 }
 
@@ -325,6 +325,14 @@ function updateXurData() {
                     layout.xur += 'See below';
                     break;
             }
+            let time = new Date();
+            let dayOfWeek;
+            if (time.getDay() == 5) {
+                dayOfWeek = 5;
+            } else {
+                dayOfWeek = time.getDate() + (6 - time.getDay() - 1) - 7;
+            }
+            layout.xurtime = (new Date(xurAPI.lastUpdate) - new Date(Date.UTC(time.getFullYear(), time.getMonth(), dayOfWeek, 17, 0, 0, 0))) / 1000;
         } else {
             layout.xur = 'Xur\'s here, but we haven\'t found him yet';
         }
